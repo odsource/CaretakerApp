@@ -7,14 +7,46 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Date;
+
 @Entity(tableName = "caretaker")
 public class Caretaker {
     @PrimaryKey
     @NonNull
     private String mEmail;
 
-    @ColumnInfo(name = "mPassword")
+    @ColumnInfo
     private String mPassword;
+
+    @ColumnInfo
+    private String gender;
+
+    @ColumnInfo
+    private String first_name;
+
+    @ColumnInfo
+    private String surname;
+
+    @ColumnInfo
+    private Date birthday;
+
+    @ColumnInfo
+    private String phone;
+
+    @ColumnInfo
+    private String street;
+
+    @ColumnInfo
+    private String number;
+
+    @ColumnInfo
+    private String zip;
+
+    @ColumnInfo
+    private String city;
+
+    @ColumnInfo
+    private String country;
 
     public Caretaker(String email, String password) {
         mEmail = email;

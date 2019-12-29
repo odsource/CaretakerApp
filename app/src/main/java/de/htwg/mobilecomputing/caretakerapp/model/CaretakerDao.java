@@ -22,6 +22,9 @@ public interface CaretakerDao {
     @Insert
     void insertAll(Caretaker... users);
 
+    @Insert
+    void insert(Caretaker user);
+
     @Delete
     void delete(Caretaker user);
 
