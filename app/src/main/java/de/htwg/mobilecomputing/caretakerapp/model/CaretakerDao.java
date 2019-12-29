@@ -1,5 +1,6 @@
 package de.htwg.mobilecomputing.caretakerapp.model;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -12,7 +13,7 @@ public interface CaretakerDao {
 
     // Get all caretaker
     @Query("SELECT * FROM caretaker")
-    List<Caretaker> getAll();
+    LiveData<List<Caretaker>> getAll();
 
     // Search for specific caretaker by mail
     @Query("SELECT * FROM caretaker WHERE mEmail IN (:userIds)")
