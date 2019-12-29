@@ -2,8 +2,16 @@ package de.htwg.mobilecomputing.caretakerapp.model;
 
 import android.util.Patterns;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Caretaker {
+    @PrimaryKey
     private String mEmail;
+
+    @ColumnInfo(name = "password")
     private String mPassword;
 
     public Caretaker(String email, String password) {
