@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorLightBlue"
+    tools:context=".view.RegisterPrivacyActivity">
+
+    <data>
+        <variable
+            name="privacyViewModel"
+            type="de.htwg.mobilecomputing.caretakerapp.viewmodel.PrivacyViewModel" />
+    </data>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="30dp"
+                android:text="Data privacy" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:text="We attach great importance to\n data protection. Therefore and\n a complete transparency is\n important. We only use the data to\n offer you the best possible service." />
+
+            <CheckBox
+                android:id="@+id/consent_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()-> privacyViewModel.onCheck1Clicked()}"
+                android:text="Consent type one" />
+
+            <CheckBox
+                android:id="@+id/consent_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()-> privacyViewModel.onCheck2Clicked()}"
+                android:text="Consent type two" />
+
+            <Button
+                android:id="@+id/reg_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="@{()-> privacyViewModel.onRegClicked()}"
+                android:text="Register" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>
