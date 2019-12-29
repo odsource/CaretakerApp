@@ -15,22 +15,6 @@ import de.htwg.mobilecomputing.caretakerapp.model.CaretakerRepository;
 
 
 public class LoginViewModel extends AndroidViewModel {
-    public MutableLiveData<String> errorPassword = new MutableLiveData<>();
-    public MutableLiveData<String> errorEmail = new MutableLiveData<>();
-
-    public MutableLiveData<String> email = new MutableLiveData<>();
-    public MutableLiveData<String> password = new MutableLiveData<>();
-    public MutableLiveData<Integer> busy;
-
-    public MutableLiveData<Integer> getBusy() {
-
-        if (busy == null) {
-            busy = new MutableLiveData<>();
-            busy.setValue(8);
-        }
-
-        return busy;
-    }
 
     private CaretakerRepository mRepository;
     private LiveData<List<Caretaker>> mAllCaretaker;
@@ -46,6 +30,24 @@ public class LoginViewModel extends AndroidViewModel {
 
     public void insert(Caretaker caretaker) {
         mRepository.insert(caretaker);
+    }
+
+
+    public MutableLiveData<String> errorPassword = new MutableLiveData<>();
+    public MutableLiveData<String> errorEmail = new MutableLiveData<>();
+
+    public MutableLiveData<String> email = new MutableLiveData<>();
+    public MutableLiveData<String> password = new MutableLiveData<>();
+    public MutableLiveData<Integer> busy;
+
+    public MutableLiveData<Integer> getBusy() {
+
+        if (busy == null) {
+            busy = new MutableLiveData<>();
+            busy.setValue(8);
+        }
+
+        return busy;
     }
 
     private MutableLiveData<Caretaker> userMutableLiveData;
