@@ -19,38 +19,48 @@ public class Caretaker {
     private String mPassword;
 
     @ColumnInfo
-    private String gender;
+    private String mGender;
 
     @ColumnInfo
-    private String first_name;
+    private String mFirst_name;
 
     @ColumnInfo
-    private String surname;
+    private String mSurname;
 
     @ColumnInfo
-    private Date birthday;
+    private Date mBirthday;
 
     @ColumnInfo
-    private String phone;
+    private String mPhone;
 
     @ColumnInfo
-    private String street;
+    private String mStreet;
 
     @ColumnInfo
-    private String number;
+    private String mNumber;
 
     @ColumnInfo
-    private String zip;
+    private int mZip;
 
     @ColumnInfo
-    private String city;
+    private String mCity;
 
     @ColumnInfo
-    private String country;
+    private String mCountry;
 
-    public Caretaker(String email, String password) {
+    public Caretaker(String email, String password, String gender, String first_name, String surname, Date birthday, String phone, String street, String number, int zip, String city, String country) {
         mEmail = email;
         mPassword = password;
+        mGender = gender;
+        mFirst_name = first_name;
+        mSurname = surname;
+        mBirthday = birthday;
+        mPhone = phone;
+        mStreet = street;
+        mNumber = number;
+        mZip = zip;
+        mCity = city;
+        mCountry = country;
     }
 
     public String getEmail() {
