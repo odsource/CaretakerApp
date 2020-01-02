@@ -17,7 +17,7 @@ public interface CaretakerDao {
 
     // Search for specific caretaker by mail
     @Query("SELECT * FROM caretaker WHERE mEmail IN (:userIds)")
-    List<Caretaker> loadAllByIds(int[] userIds);
+    LiveData<List<Caretaker>> loadAllByIds(int[] userIds);
 
     @Query(("SELECT * FROM caretaker WHERE mEmail = :mail"))
     LiveData<Caretaker> getSpecificCaretaker(String mail);
