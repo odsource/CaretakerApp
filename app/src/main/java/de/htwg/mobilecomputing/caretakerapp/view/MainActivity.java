@@ -72,11 +72,6 @@ public class MainActivity extends AppCompatActivity implements DownloadCallback 
         }
     }
 
-    /*@Override
-    public void updateFromDownload(String result) {
-        Toast.makeText(getApplicationContext(), "Result : " + result, Toast.LENGTH_SHORT).show();
-    }*/
-
     @Override
     public void updateFromDownload(Object result) {
         if (result == null) {

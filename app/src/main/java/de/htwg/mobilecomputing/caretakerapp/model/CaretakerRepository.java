@@ -12,7 +12,7 @@ public class CaretakerRepository {
     private CaretakerDao mUserDao;
     private LiveData<List<Caretaker>> mAllCaretaker;
     private Webservice webservice;
-/*
+
     public CaretakerRepository(Application application) {
         AppDatabase db = AppDatabase.getDatabase(application);
         mUserDao = db.caretakerDao();
@@ -31,5 +31,5 @@ public class CaretakerRepository {
         AppDatabase.databaseWriteExecutor.execute(() -> {
             mUserDao.insert(user);
         });
-    }*/
+    }
 }
