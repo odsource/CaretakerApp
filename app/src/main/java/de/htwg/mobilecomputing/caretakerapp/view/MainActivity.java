@@ -3,24 +3,16 @@ package de.htwg.mobilecomputing.caretakerapp.view;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import de.htwg.mobilecomputing.caretakerapp.R;
 import de.htwg.mobilecomputing.caretakerapp.databinding.ActivityMainBinding;
-import de.htwg.mobilecomputing.caretakerapp.generated.callback.OnClickListener;
 import de.htwg.mobilecomputing.caretakerapp.model.Caretaker;
-import de.htwg.mobilecomputing.caretakerapp.model.Credentials;
 import de.htwg.mobilecomputing.caretakerapp.model.LoginInfo;
 import de.htwg.mobilecomputing.caretakerapp.model.Token;
-import de.htwg.mobilecomputing.caretakerapp.network.DownloadCallback;
-import de.htwg.mobilecomputing.caretakerapp.network.NetworkFragment;
 import de.htwg.mobilecomputing.caretakerapp.network.Webservice;
 import de.htwg.mobilecomputing.caretakerapp.viewmodel.LoginViewModel;
 import okhttp3.OkHttpClient;
