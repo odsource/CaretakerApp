@@ -2,9 +2,11 @@ package de.htwg.mobilecomputing.caretakerapp.network;
 
 import java.util.List;
 
+import de.htwg.mobilecomputing.caretakerapp.model.Address;
 import de.htwg.mobilecomputing.caretakerapp.model.Caretaker;
 import de.htwg.mobilecomputing.caretakerapp.model.Credentials;
 import de.htwg.mobilecomputing.caretakerapp.model.LoginInfo;
+import de.htwg.mobilecomputing.caretakerapp.model.PersonalInformation;
 import de.htwg.mobilecomputing.caretakerapp.model.Token;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -15,6 +17,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 
 public interface Webservice {
     @Headers("Content-Type: application/json")
@@ -35,6 +38,18 @@ public interface Webservice {
 
     @Headers("Content-Type: application/json")
     @POST("address")
-    Call<Void> createAddress(@Header("Authorization") String accessToken, String[] address);
+    Call<Void> createAddress(@Header("Authorization") String accessToken, Address address);
+
+    @Headers("Content-Type: application/json")
+    @POST("address")
+    Call<Void> updateAddress(@Header("Authorization") String accessToken, Address address);
+
+    @Headers("Content-Type: application/json")
+    @PUT("profile")
+    Call<Void> updateProfile(@Header("Authorization") String accessToken, PersonalInformation personalInformation);
+
+    @Headers("Content-Type: application/json")
+    @PUT("profile")
+    Call<Void> updateEducation(@Header("Authorization") String accessToken, int level);
 
 }

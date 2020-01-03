@@ -9,15 +9,14 @@ import androidx.room.Query;
 import java.util.List;
 
 @Dao
-public interface CaretakerDao {
-
+interface PersonalInformationDao {
     // Get all caretaker
     @Query("SELECT * FROM caretaker")
     LiveData<List<Caretaker>> getAll();
 
     // Search for specific caretaker by mail
     @Query("SELECT * FROM caretaker WHERE mEmail IN (:userIds)")
-    LiveData<List<Caretaker>> loadAllByIds(int[] userIds);
+    List<Caretaker> loadAllByIds(int[] userIds);
 
     @Query(("SELECT * FROM caretaker WHERE mEmail = :mail"))
     LiveData<Caretaker> getSpecificCaretaker(String mail);
@@ -30,5 +29,4 @@ public interface CaretakerDao {
 
     @Delete
     void delete(Caretaker user);
-
 }

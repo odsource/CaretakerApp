@@ -11,12 +11,15 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-//@Database(entities = {Caretaker.class}, version = 1, exportSchema = false)
+@Database(entities = {Caretaker.class, Address.class, PersonalInformation.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
-    public abstract CaretakerDao caretakerDao();
-
     private static volatile AppDatabase INSTANCE;
-    private static final int NUMBER_OF_THREADS = 4;
+
+    public abstract CaretakerDao caretakerDao();
+    public abstract PersonalInformationDao personalInformationDao();
+    public abstract AddressDao addressDao();
+
+    private static final int NUMBER_OF_THREADS = 1;
     static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
@@ -25,14 +28,17 @@ public abstract class AppDatabase extends RoomDatabase {
             synchronized (AppDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            AppDatabase.class, "caretaker_database")
-                            .addCallback(sRoomDatabaseCallback)
+                            AppDatabase.class,
+                            "caretaker_database")
+                            //.addCallback(sRoomDatabaseCallback)
                             .build();
                 }
             }
         }
         return INSTANCE;
     }
+
+    public static void destroyInstance() { INSTANCE = null; }
 
     private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
         @Override
