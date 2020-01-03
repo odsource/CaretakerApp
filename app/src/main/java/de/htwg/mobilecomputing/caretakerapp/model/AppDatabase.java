@@ -20,9 +20,9 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract PersonalInformationDao personalInformationDao();
     public abstract AddressDao addressDao();
 
-    /*private static final int NUMBER_OF_THREADS = 1;
+    private static final int NUMBER_OF_THREADS = 1;
     static final ExecutorService databaseWriteExecutor =
-            Executors.newFixedThreadPool(NUMBER_OF_THREADS);*/
+            Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
     static AppDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import de.htwg.mobilecomputing.caretakerapp.R;
 import de.htwg.mobilecomputing.caretakerapp.databinding.ActivityMainBinding;
@@ -55,13 +56,22 @@ public class MainActivity extends AppCompatActivity {
 
         Webservice webservice = retrofit.create(Webservice.class);
 
+        loginViewModel.getmUserToken().observe(this, new Observer<Token>() {
+            @Override
+            public void onChanged(Token token) {
+                Intent intent = new Intent(MainActivity.this, OnboardingConfirmationActivity.class);
+                intent.putExtra(EXTRA_ACCESS_TOKEN, token.accessToken);
+                Toast.makeText(getApplicationContext(), "AccessToken: "+token.accessToken, Toast.LENGTH_LONG).show();
+            }
+        });
+
         loginViewModel.getLoginClicked().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(@Nullable Boolean user) {
                 EditText mail = findViewById(R.id.inEmail);
                 EditText password = findViewById(R.id.inPassword);
                 LoginInfo loginInfo = new LoginInfo(mail.getText().toString(), password.getText().toString());
-                Call<Token> call = webservice.login(loginInfo);
+                /*Call<Token> call = webservice.login(loginInfo);
                 call.enqueue(new Callback<Token>() {
                     @Override
                     public void onResponse(Call<Token> call, Response<Token> response) {
@@ -74,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onFailure(Call<Token> call, Throwable t) {
 
                     }
-                });
+                });*/
             }
         });
 

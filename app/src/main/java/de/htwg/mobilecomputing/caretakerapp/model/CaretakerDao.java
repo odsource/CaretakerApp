@@ -14,5 +14,5 @@ public interface CaretakerDao {
     LiveData<Caretaker> getSpecificCaretaker(String mail);
 
     @Insert
-    void insert(Caretaker user);
+    void createCaretaker(Caretaker user);
 }

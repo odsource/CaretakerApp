@@ -6,33 +6,40 @@ import android.os.Handler;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
-
-import java.util.List;
 
 import de.htwg.mobilecomputing.caretakerapp.model.Caretaker;
 import de.htwg.mobilecomputing.caretakerapp.model.CaretakerRepository;
+import de.htwg.mobilecomputing.caretakerapp.model.LoginInfo;
+import de.htwg.mobilecomputing.caretakerapp.model.Token;
 
 
 public class LoginViewModel extends AndroidViewModel {
 
     private CaretakerRepository mRepository;
-    private LiveData<List<Caretaker>> mAllCaretaker;
     public LoginViewModel(Application application) {
         super(application);
-        /*mRepository = new CaretakerRepository(application);
-        mAllCaretaker = mRepository.getAllCaretaker();*/
+        mRepository = new CaretakerRepository(application);
     }
 
-    LiveData<List<Caretaker>> getmAllCaretaker() {
-        return mAllCaretaker;
+    public void register(Caretaker caretaker) {
+        mRepository.register(caretaker);
     }
 
-    public void insert(Caretaker caretaker) {
-        mRepository.insert(caretaker);
+    private MutableLiveData<Token> mUserToken;
+
+    public LiveData getUserToken() {
+        if (mUserToken == null) {
+            mUserToken = new MutableLiveData<>();
+        }
+        return mUserToken;
     }
 
-    public MutableLiveData<Integer> busy;
+    private void login(LoginInfo loginInfo) {
+        Token token = mRepository.login(loginInfo);
+        mUserToken.postValue(token);
+    }
+
+    private MutableLiveData<Integer> busy;
 
     public MutableLiveData<Integer> getBusy() {
 
@@ -42,16 +49,6 @@ public class LoginViewModel extends AndroidViewModel {
         }
 
         return busy;
-    }
-
-    private MutableLiveData<Caretaker> userMutableLiveData;
-
-    public LiveData<Caretaker> getCaretaker() {
-        if (userMutableLiveData == null) {
-            userMutableLiveData = new MutableLiveData<>();
-        }
-
-        return userMutableLiveData;
     }
 
     private MutableLiveData<Boolean> loginClicked;
@@ -64,6 +61,24 @@ public class LoginViewModel extends AndroidViewModel {
         return loginClicked;
     }
 
+    private MutableLiveData<String> email;
+
+    public LiveData<String> getEmail() {
+        if (email == null) {
+            email = new MutableLiveData<>();
+        }
+        return email;
+    }
+
+    private MutableLiveData<String> password;
+
+    public LiveData<String> getPassword() {
+        if (password == null) {
+            password = new MutableLiveData<>();
+        }
+        return password;
+    }
+
     public void onLoginClicked() {
 
         getBusy().setValue(0); //View.VISIBLE
@@ -71,7 +86,8 @@ public class LoginViewModel extends AndroidViewModel {
         h.postDelayed(new Runnable() {
             @Override
             public void run() {
-                loginClicked.setValue(true);
+                login(new LoginInfo(email.getValue(), password.getValue()));
+                //loginClicked.setValue(true);
                 busy.setValue(8); //8 == View.GONE
             }
         }, 2000);
