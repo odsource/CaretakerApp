@@ -29,7 +29,7 @@
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:padding="8dp"
-                android:text="@{loginViewModel.email}"/>
+                android:text="@={loginViewModel.email}"/>
 
 
             <EditText
@@ -39,7 +39,7 @@
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:padding="8dp"
-                android:text="@{loginViewModel.password}"/>
+                android:text="@={loginViewModel.password}"/>
 
 
             <Button

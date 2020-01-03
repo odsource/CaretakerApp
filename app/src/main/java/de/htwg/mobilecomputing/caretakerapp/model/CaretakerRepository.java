@@ -3,6 +3,8 @@ package de.htwg.mobilecomputing.caretakerapp.model;
 import android.app.Application;
 
 import de.htwg.mobilecomputing.caretakerapp.network.Webservice;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -15,16 +17,24 @@ public class CaretakerRepository {
     private AddressDao addressDao;
     private Webservice webservice;
 
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://dev.api.digital-nursing-service.ucura.com/api/v1/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-
     public CaretakerRepository(Application application) {
         AppDatabase db = AppDatabase.getDatabase(application);
         mUserDao = db.caretakerDao();
         informationDao = db.personalInformationDao();
         addressDao = db.addressDao();
+
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(loggingInterceptor)
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://dev.api.digital-nursing-service.ucura.com/api/v1/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)
+                .build();
         webservice = retrofit.create(Webservice.class);
     }
 

@@ -61,27 +61,12 @@ public class LoginViewModel extends AndroidViewModel {
         return loginClicked;
     }
 
-    private MutableLiveData<String> email;
-
-    public LiveData<String> getEmail() {
-        if (email == null) {
-            email = new MutableLiveData<>();
-        }
-        return email;
-    }
-
-    private MutableLiveData<String> password;
-
-    public LiveData<String> getPassword() {
-        if (password == null) {
-            password = new MutableLiveData<>();
-        }
-        return password;
-    }
+    public MutableLiveData<String> email = new MutableLiveData<>();
+    public MutableLiveData<String> password = new MutableLiveData<>();
 
     public void onLoginClicked() {
-
-        getBusy().setValue(0); //View.VISIBLE
+        login(new LoginInfo(email.getValue(), password.getValue()));
+        /*getBusy().setValue(0); //View.VISIBLE
         Handler h = new Handler();
         h.postDelayed(new Runnable() {
             @Override
@@ -90,6 +75,6 @@ public class LoginViewModel extends AndroidViewModel {
                 //loginClicked.setValue(true);
                 busy.setValue(8); //8 == View.GONE
             }
-        }, 2000);
+        }, 2000);*/
     }
 }
