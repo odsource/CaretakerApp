@@ -15,20 +15,18 @@ import android.widget.Toast;
 
 import de.htwg.mobilecomputing.caretakerapp.R;
 import de.htwg.mobilecomputing.caretakerapp.databinding.ActivityRegisterPrivacyBinding;
-import de.htwg.mobilecomputing.caretakerapp.model.Caretaker;
-import de.htwg.mobilecomputing.caretakerapp.network.DownloadCallback;
-import de.htwg.mobilecomputing.caretakerapp.network.NetworkFragment;
+import de.htwg.mobilecomputing.caretakerapp.model.Credentials;
+import de.htwg.mobilecomputing.caretakerapp.network.Webservice;
 import de.htwg.mobilecomputing.caretakerapp.viewmodel.PrivacyViewModel;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RegisterPrivacyActivity extends AppCompatActivity implements DownloadCallback{
-    // Keep a reference to the NetworkFragment, which owns the AsyncTask object
-    // that is used to execute network ops.
-    private NetworkFragment networkFragment;
-
-    // Boolean telling us whether a download is in progress, so we don't trigger overlapping
-    // downloads with consecutive button clicks.
-    private boolean downloading = false;
-
+public class RegisterPrivacyActivity extends AppCompatActivity{
     private String mail = null;
     private String password = null;
 
@@ -45,84 +43,38 @@ public class RegisterPrivacyActivity extends AppCompatActivity implements Downlo
         mail = intent.getStringExtra(RegActivity.EXTRA_MAIL);
         password = intent.getStringExtra(RegActivity.EXTRA_PASSWORD);
 
-        networkFragment = NetworkFragment.getInstance(getSupportFragmentManager(), "https://dev.api.digital-nursing-service.ucura.com/api/v1");
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(loggingInterceptor)
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://dev.api.digital-nursing-service.ucura.com/api/v1/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)
+                .build();
+
+        Webservice webservice = retrofit.create(Webservice.class);
 
         privacyViewModel.getCheck().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                startDownload(1);
+                Credentials credentials = new Credentials(mail, password);
+                Call<Void>  call = webservice.register(credentials);
+                call.enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        Toast.makeText(getApplicationContext(), "Responsecode: " + response.code(), Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(), "Failure: " + t, Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
-    }
-
-    private void startDownload(int t) {
-        if (!downloading && networkFragment != null) {
-            // Execute the async download.
-            int downloadType = t;
-            networkFragment.startDownload(downloadType);
-            downloading = true;
-
-
-        }
-    }
-
-    @Override
-    public void updateFromDownload(Object result) {
-        if (result == null) {
-            Toast.makeText(getApplicationContext(), "No result", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(getApplicationContext(), "Result : " + result.toString(), Toast.LENGTH_SHORT).show();
-            // TODO: Change class for intent
-            startActivity(new Intent(RegisterPrivacyActivity.this, RegFinishedActivity.class));
-        }
-    }
-
-    @Override
-    public NetworkInfo getActiveNetworkInfo() {
-        ConnectivityManager connectivityManager =
-                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        Toast.makeText(getApplicationContext(), "getActiveNetworkInfo : ", Toast.LENGTH_SHORT).show();
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-        return networkInfo;
-    }
-
-    @Override
-    public void onProgressUpdate(int progressCode, int percentComplete) {
-        switch(progressCode) {
-            // You can add UI behavior for progress updates here.
-            case DownloadCallback.Progress.ERROR:
-                Toast.makeText(getApplicationContext(), "ERROR : " + progressCode, Toast.LENGTH_SHORT).show();
-                break;
-            case DownloadCallback.Progress.CONNECT_SUCCESS:
-                Toast.makeText(getApplicationContext(), "CONNECT_SUCCESS : " + progressCode, Toast.LENGTH_SHORT).show();
-                break;
-            case DownloadCallback.Progress.GET_INPUT_STREAM_SUCCESS:
-                Toast.makeText(getApplicationContext(), "GET_INPUT_STREAM_SUCCESS : " + progressCode, Toast.LENGTH_SHORT).show();
-                break;
-            case DownloadCallback.Progress.PROCESS_INPUT_STREAM_IN_PROGRESS:
-                Toast.makeText(getApplicationContext(), "PROCESS_INPUT_STREAM_IN_PROGRESS : " + progressCode, Toast.LENGTH_SHORT).show();
-                break;
-            case DownloadCallback.Progress.PROCESS_INPUT_STREAM_SUCCESS:
-                Toast.makeText(getApplicationContext(), "PROCESS_INPUT_STREAM_SUCCESS : " + progressCode, Toast.LENGTH_SHORT).show();
-                break;
-        }
-    }
-
-    @Override
-    public void finishDownloading() {
-        downloading = false;
-        if (networkFragment != null) {
-            networkFragment.cancelDownload();
-        }
-    }
-
-    @Override
-    public String getMail() {
-        return mail;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
     }
 }

@@ -34,13 +34,6 @@ public class RegActivity extends AppCompatActivity {
         binding.setRegViewModel(regViewModel);
         binding.setLifecycleOwner(this);
 
-        /*regViewModel.getCaretaker().observe(this, new Observer<Caretaker>() {
-            @Override
-            public void onChanged(Caretaker caretaker) {
-
-            }
-        });*/
-
         findViewById(R.id.next_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

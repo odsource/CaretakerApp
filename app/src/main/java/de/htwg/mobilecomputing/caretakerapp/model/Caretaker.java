@@ -28,7 +28,7 @@ public class Caretaker {
     private String mSurname;
 
     @ColumnInfo
-    private Date mBirthday;
+    private String mBirthday;
 
     @ColumnInfo
     private String mPhone;
@@ -48,7 +48,7 @@ public class Caretaker {
     @ColumnInfo
     private String mCountry;
 
-    public Caretaker(String email, String password, String gender, String first_name, String surname, Date birthday, String phone, String street, String number, int zip, String city, String country) {
+    public Caretaker(String email, String password, String gender, String first_name, String surname, String birthday, String phone, String street, String number, int zip, String city, String country) {
         this.mEmail = email;
         this.mPassword = password;
         this.mGender = gender;
@@ -82,5 +82,72 @@ public class Caretaker {
 
     public boolean isPasswordLengthGreaterThan7() {
         return getPassword().length() > 7;
+    }
+
+    public String getGender() {
+        if (mGender == null) {
+            return "";
+        }
+        return mGender;
+    }
+
+    public String getFirst_name() {
+        if (mFirst_name == null) {
+            return "";
+        }
+        return mFirst_name;
+    }
+
+    public String getSurname() {
+        if (mSurname == null) {
+            return "";
+        }
+        return mSurname;
+    }
+
+    public String getBirthday() {
+        if (mBirthday == null) {
+            return "";
+        }
+        return mBirthday;
+    }
+
+    public String getPhone() {
+        if (mPhone == null) {
+            return "";
+        }
+        return mPhone;
+    }
+
+    public String getStreet() {
+        if (mStreet == null) {
+            return "";
+        }
+        return mStreet;
+    }
+
+    public String getNumber() {
+        if (mNumber == null) {
+            return "";
+        }
+        return mNumber;
+    }
+
+    public int getZip() {
+        return mZip;
+    }
+
+    public String getCity() {
+        if (mCity == null) {
+            return "";
+        }
+        return mCity;
+    }
+
+    public String getCountry() {
+        if (mCountry == null) {
+            return "";
+        }
+        return mCountry;
     }
 }

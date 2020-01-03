@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 public class CaretakerRepository {
-
+/*
     private CaretakerDao mUserDao;
     private LiveData<List<Caretaker>> mAllCaretaker;
 
@@ -33,5 +33,5 @@ public class CaretakerRepository {
         AppDatabase.databaseWriteExecutor.execute(() -> {
             mUserDao.insert(user);
         });
-    }
+    }*/
 }

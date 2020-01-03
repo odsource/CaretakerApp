@@ -20,8 +20,8 @@ public class LoginViewModel extends AndroidViewModel {
     private LiveData<List<Caretaker>> mAllCaretaker;
     public LoginViewModel(Application application) {
         super(application);
-        mRepository = new CaretakerRepository(application);
-        mAllCaretaker = mRepository.getAllCaretaker();
+        //mRepository = new CaretakerRepository(application);
+        //mAllCaretaker = mRepository.getAllCaretaker();
     }
 
     LiveData<List<Caretaker>> getmAllCaretaker() {
@@ -29,7 +29,7 @@ public class LoginViewModel extends AndroidViewModel {
     }
 
     public void insert(Caretaker caretaker) {
-        mRepository.insert(caretaker);
+        //mRepository.insert(caretaker);
     }
 
 
@@ -68,7 +68,7 @@ public class LoginViewModel extends AndroidViewModel {
             @Override
             public void run() {
 
-                Caretaker caretaker = new Caretaker(email.getValue(), password.getValue());
+                Caretaker caretaker = new Caretaker(email.getValue(), password.getValue(), "", "", "", "", "", "", "", 1, "", "");
 
                 if (!caretaker.isEmailValid()) {
                     errorEmail.setValue("Enter a valid email address");
