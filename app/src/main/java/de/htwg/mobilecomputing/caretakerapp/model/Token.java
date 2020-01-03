@@ -1,19 +1,19 @@
 package de.htwg.mobilecomputing.caretakerapp.model;
 
 public class Token {
-    private String mAccessToken;
-    private String mRefreshToken;
+    public String accessToken;
+    public String refreshToken;
 
     public Token(String aT, String rT) {
-        this.mAccessToken = aT;
-        this.mRefreshToken = rT;
+        this.accessToken = aT;
+        this.refreshToken = rT;
     }
 
     public String getAccessToken() {
-        return mAccessToken;
+        return accessToken;
     }
 
     public String getRefreshToken() {
-        return mRefreshToken;
+        return refreshToken;
     }
 }
