@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.util.concurrent.ExecutorService;
@@ -19,9 +20,9 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract PersonalInformationDao personalInformationDao();
     public abstract AddressDao addressDao();
 
-    private static final int NUMBER_OF_THREADS = 1;
+    /*private static final int NUMBER_OF_THREADS = 1;
     static final ExecutorService databaseWriteExecutor =
-            Executors.newFixedThreadPool(NUMBER_OF_THREADS);
+            Executors.newFixedThreadPool(NUMBER_OF_THREADS);*/
 
     static AppDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
@@ -31,6 +32,7 @@ public abstract class AppDatabase extends RoomDatabase {
                             AppDatabase.class,
                             "caretaker_database")
                             //.addCallback(sRoomDatabaseCallback)
+                            .allowMainThreadQueries()
                             .build();
                 }
             }

@@ -11,8 +11,8 @@ import java.util.List;
 @Dao
 interface PersonalInformationDao {
 
-    @Query("SELECT personalInformation FROM caretaker where mEmail = (:mail)")
-    LiveData<PersonalInformation> getPersonalInformation(String mail);
+    @Query("SELECT * FROM personalInformation_table")
+    LiveData<PersonalInformation> getPersonalInformation();
 
     @Insert
     void insertPersonalInformation(PersonalInformation personalInformation);

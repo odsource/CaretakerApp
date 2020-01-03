@@ -55,9 +55,9 @@ public class MainActivity extends AppCompatActivity {
 
         Webservice webservice = retrofit.create(Webservice.class);
 
-        loginViewModel.getCaretaker().observe(this, new Observer<Caretaker>() {
+        loginViewModel.getLoginClicked().observe(this, new Observer<Boolean>() {
             @Override
-            public void onChanged(@Nullable Caretaker user) {
+            public void onChanged(@Nullable Boolean user) {
                 EditText mail = findViewById(R.id.inEmail);
                 EditText password = findViewById(R.id.inPassword);
                 LoginInfo loginInfo = new LoginInfo(mail.getText().toString(), password.getText().toString());

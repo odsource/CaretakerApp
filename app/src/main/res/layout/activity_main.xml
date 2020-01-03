@@ -28,8 +28,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:padding="8dp"
-                android:text="@={loginViewModel.email}" />
+                android:padding="8dp"/>
 
 
             <EditText
@@ -38,8 +37,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Password"
                 android:inputType="textPassword"
-                android:padding="8dp"
-                android:text="@={loginViewModel.password}" />
+                android:padding="8dp"/>
 
 
             <Button

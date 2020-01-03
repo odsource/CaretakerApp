@@ -10,25 +10,9 @@ import java.util.List;
 
 @Dao
 public interface CaretakerDao {
-
-    // Get all caretaker
-    @Query("SELECT * FROM caretaker")
-    LiveData<List<Caretaker>> getAll();
-
-    // Search for specific caretaker by mail
-    @Query("SELECT * FROM caretaker WHERE mEmail IN (:userIds)")
-    LiveData<List<Caretaker>> loadAllByIds(int[] userIds);
-
-    @Query(("SELECT * FROM caretaker WHERE mEmail = :mail"))
+    @Query(("SELECT * FROM caretaker_table WHERE mEmail = :mail"))
     LiveData<Caretaker> getSpecificCaretaker(String mail);
 
     @Insert
-    void insertAll(Caretaker... users);
-
-    @Insert
     void insert(Caretaker user);
-
-    @Delete
-    void delete(Caretaker user);
-
 }

@@ -12,8 +12,8 @@ import java.util.List;
 @Dao
 interface AddressDao {
 
-    @Query("SELECT address FROM caretaker WHERE mEmail = (:mail)")
-    LiveData<List<Caretaker>> getAddress(String mail);
+    @Query("SELECT * FROM address_table")
+    LiveData<Address> getAddress();
 
     @Insert
     void insertAddress(Address address);
