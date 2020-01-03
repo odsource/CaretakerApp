@@ -49,18 +49,18 @@ public class Caretaker {
     private String mCountry;
 
     public Caretaker(String email, String password, String gender, String first_name, String surname, Date birthday, String phone, String street, String number, int zip, String city, String country) {
-        mEmail = email;
-        mPassword = password;
-        mGender = gender;
-        mFirst_name = first_name;
-        mSurname = surname;
-        mBirthday = birthday;
-        mPhone = phone;
-        mStreet = street;
-        mNumber = number;
-        mZip = zip;
-        mCity = city;
-        mCountry = country;
+        this.mEmail = email;
+        this.mPassword = password;
+        this.mGender = gender;
+        this.mFirst_name = first_name;
+        this.mSurname = surname;
+        this.mBirthday = birthday;
+        this.mPhone = phone;
+        this.mStreet = street;
+        this.mNumber = number;
+        this.mZip = zip;
+        this.mCity = city;
+        this.mCountry = country;
     }
 
     public String getEmail() {
