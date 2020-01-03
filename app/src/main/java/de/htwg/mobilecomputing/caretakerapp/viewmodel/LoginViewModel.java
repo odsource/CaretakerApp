@@ -62,8 +62,7 @@ public class LoginViewModel extends AndroidViewModel {
     public MutableLiveData<String> password = new MutableLiveData<>();
 
     public void onLoginClicked() {
-        login(new LoginInfo(email.getValue(), password.getValue()));
-        /*getBusy().setValue(0); //View.VISIBLE
+        getBusy().setValue(0); //View.VISIBLE
         Handler h = new Handler();
         h.postDelayed(new Runnable() {
             @Override
@@ -72,6 +71,6 @@ public class LoginViewModel extends AndroidViewModel {
                 //loginClicked.setValue(true);
                 busy.setValue(8); //8 == View.GONE
             }
-        }, 2000);*/
+        }, 1000);
     }
 }
