@@ -6,15 +6,13 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
+import de.htwg.mobilecomputing.caretakerapp.network.Webservice;
+
 public class CaretakerRepository {
-/*
     private CaretakerDao mUserDao;
     private LiveData<List<Caretaker>> mAllCaretaker;
-
-    // Note that in order to unit test the WordRepository, you have to remove the Application
-    // dependency. This adds complexity and much more code, and this sample is not about testing.
-    // See the BasicSample in the android-architecture-components repository at
-    // https://github.com/googlesamples
+    private Webservice webservice;
+/*
     public CaretakerRepository(Application application) {
         AppDatabase db = AppDatabase.getDatabase(application);
         mUserDao = db.caretakerDao();

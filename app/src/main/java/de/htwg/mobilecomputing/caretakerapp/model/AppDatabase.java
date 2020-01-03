@@ -13,7 +13,7 @@ import java.util.concurrent.Executors;
 
 //@Database(entities = {Caretaker.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
-    /*public abstract CaretakerDao caretakerDao();
+    public abstract CaretakerDao caretakerDao();
 
     private static volatile AppDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
@@ -38,21 +38,7 @@ public abstract class AppDatabase extends RoomDatabase {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
-
-            // If you want to keep data through app restarts,
-            // comment out the following block
-            /*databaseWriteExecutor.execute(() -> {
-                // Populate the database in the background.
-                // If you want to start with more words, just add them.
-                WordDao dao = INSTANCE.wordDao();
-                dao.deleteAll();
-
-                Word word = new Word("Hello");
-                dao.insert(word);
-                word = new Word("World");
-                dao.insert(word);
-            });
         }
-    };*/
+    };
 }
 

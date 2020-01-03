@@ -66,12 +66,12 @@ public class RegisterPrivacyActivity extends AppCompatActivity{
                 call.enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
-                        Toast.makeText(getApplicationContext(), "Responsecode: " + response.code(), Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(RegisterPrivacyActivity.this, RegFinishedActivity.class));
                     }
 
                     @Override
                     public void onFailure(Call<Void> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(), "Failure: " + t, Toast.LENGTH_LONG).show();
+
                     }
                 });
             }
