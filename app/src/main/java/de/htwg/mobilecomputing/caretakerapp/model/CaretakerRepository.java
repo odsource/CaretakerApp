@@ -2,6 +2,8 @@ package de.htwg.mobilecomputing.caretakerapp.model;
 
 import android.app.Application;
 
+import androidx.lifecycle.MutableLiveData;
+
 import de.htwg.mobilecomputing.caretakerapp.network.Webservice;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -59,11 +61,16 @@ public class CaretakerRepository {
         });
     }
 
-    private Token token;
-
-    public Token login(LoginInfo loginInfo) {
-        loginIntern(loginInfo);
+    private MutableLiveData<Token> token;
+    public MutableLiveData<Token> getToken() {
+        if (token == null) {
+            token = new MutableLiveData<>();
+        }
         return token;
+    }
+
+    public void login(LoginInfo loginInfo) {
+        loginIntern(loginInfo);
     }
 
     private void loginIntern(LoginInfo loginInfo) {
@@ -71,7 +78,7 @@ public class CaretakerRepository {
         call.enqueue(new Callback<Token>() {
             @Override
             public void onResponse(Call<Token> call, Response<Token> response) {
-                token = response.body();
+                token.setValue(response.body());
             }
 
             @Override
