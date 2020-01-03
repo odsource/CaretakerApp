@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         Webservice webservice = retrofit.create(Webservice.class);
 
-        loginViewModel.getmUserToken().observe(this, new Observer<Token>() {
+        loginViewModel.getUserToken().observe(this, new Observer<Token>() {
             @Override
             public void onChanged(Token token) {
                 Intent intent = new Intent(MainActivity.this, OnboardingConfirmationActivity.class);

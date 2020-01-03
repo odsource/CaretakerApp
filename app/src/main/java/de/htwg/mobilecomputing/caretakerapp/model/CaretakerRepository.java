@@ -21,21 +21,12 @@ public class CaretakerRepository {
             .build();
 
     public CaretakerRepository(Application application) {
-        /*AppDatabase db = AppDatabase.getDatabase(application);
+        AppDatabase db = AppDatabase.getDatabase(application);
         mUserDao = db.caretakerDao();
         informationDao = db.personalInformationDao();
-        addressDao = db.addressDao();*/
+        addressDao = db.addressDao();
         webservice = retrofit.create(Webservice.class);
     }
-
-    /*
-    private LiveData<List<Caretaker>> mAllCaretaker;
-    // Room executes all queries on a separate thread.
-    // Observed LiveData will notify the observer when the data has changed.
-    public LiveData<List<Caretaker>> getAllCaretaker() {
-        return mAllCaretaker;
-    }
-    */
 
     // You must call this on a non-UI thread or your app will throw an exception. Room ensures
     // that you're not doing any long running operations on the main thread, blocking the UI.

@@ -12,7 +12,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Caretaker.class, Address.class, PersonalInformation.class}, version = 1)
+@Database(entities = {Caretaker.class, Address.class, PersonalInformation.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static volatile AppDatabase INSTANCE;
 
@@ -20,9 +20,9 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract PersonalInformationDao personalInformationDao();
     public abstract AddressDao addressDao();
 
-    private static final int NUMBER_OF_THREADS = 1;
+    /*private static final int NUMBER_OF_THREADS = 1;
     static final ExecutorService databaseWriteExecutor =
-            Executors.newFixedThreadPool(NUMBER_OF_THREADS);
+            Executors.newFixedThreadPool(NUMBER_OF_THREADS);*/
 
     static AppDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
@@ -31,7 +31,7 @@ public abstract class AppDatabase extends RoomDatabase {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             AppDatabase.class,
                             "caretaker_database")
-                            //.addCallback(sRoomDatabaseCallback)
+                            .addCallback(sRoomDatabaseCallback)
                             .allowMainThreadQueries()
                             .build();
                 }
