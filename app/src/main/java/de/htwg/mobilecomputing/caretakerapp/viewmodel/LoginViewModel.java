@@ -20,8 +20,8 @@ public class LoginViewModel extends AndroidViewModel {
     private LiveData<List<Caretaker>> mAllCaretaker;
     public LoginViewModel(Application application) {
         super(application);
-        mRepository = new CaretakerRepository(application);
-        mAllCaretaker = mRepository.getAllCaretaker();
+        /*mRepository = new CaretakerRepository(application);
+        mAllCaretaker = mRepository.getAllCaretaker();*/
     }
 
     LiveData<List<Caretaker>> getmAllCaretaker() {
