@@ -5,28 +5,19 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
 @Dao
 interface AddressDao {
-    // Get all caretaker
-    @Query("SELECT * FROM caretaker")
-    LiveData<List<Caretaker>> getAll();
 
-    // Search for specific caretaker by mail
-    @Query("SELECT * FROM caretaker WHERE mEmail IN (:userIds)")
-    List<Caretaker> loadAllByIds(int[] userIds);
-
-    @Query(("SELECT * FROM caretaker WHERE mEmail = :mail"))
-    LiveData<Caretaker> getSpecificCaretaker(String mail);
+    @Query("SELECT address FROM caretaker WHERE mEmail = (:mail)")
+    LiveData<List<Caretaker>> getAddress(String mail);
 
     @Insert
-    void insertAll(Caretaker... users);
+    void insertAddress(Address address);
 
-    @Insert
-    void insert(Caretaker user);
-
-    @Delete
-    void delete(Caretaker user);
+    @Update
+    void updateAddress(Address address);
 }
