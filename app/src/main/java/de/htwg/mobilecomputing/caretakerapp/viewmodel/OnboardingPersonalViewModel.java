@@ -50,7 +50,7 @@ public class OnboardingPersonalViewModel extends AndroidViewModel {
         PersonalInformation personalInformation = new PersonalInformation(gender.getValue(), parts[0], parts[1],birthdate.getValue(), phone.getValue());
         Address address = new Address(street.getValue(), number.getValue(), zip.getValue(), city.getValue(), country.getValue());
         caretakerRepository.createPersonalInformation(token, personalInformation);
-        //caretakerRepository.createAddress(token, address);
+        caretakerRepository.createAddress(token, address);
     }
 
     private MutableLiveData<Integer> gender = new MutableLiveData<>();
