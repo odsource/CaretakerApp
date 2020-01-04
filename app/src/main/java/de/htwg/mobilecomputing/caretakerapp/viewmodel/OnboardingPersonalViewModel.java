@@ -15,10 +15,13 @@ import de.htwg.mobilecomputing.caretakerapp.model.Token;
 public class OnboardingPersonalViewModel extends AndroidViewModel {
 
     private CaretakerRepository caretakerRepository;
-    private MutableLiveData<Token> userToken;
+    public MutableLiveData<String> accessToken = new MutableLiveData<>();
     private MutableLiveData<String> error;
     private MutableLiveData<Integer> success;
 
+    public MutableLiveData<String> getAccessToken() {
+        return accessToken;
+    }
     public MutableLiveData<String> getError() {
         if (error == null) {
             error = new MutableLiveData<>();
@@ -36,23 +39,23 @@ public class OnboardingPersonalViewModel extends AndroidViewModel {
     public OnboardingPersonalViewModel(Application application) {
         super(application);
         caretakerRepository = new CaretakerRepository(application);
-        userToken = caretakerRepository.getToken();
         error = caretakerRepository.getError();
         success = caretakerRepository.getSuccess();
     }
 
     public void nextClicked() {
         String name = userName.getValue();
+        String token = "Bearer " + accessToken.getValue();
         String[] parts = name.split(" ");
         PersonalInformation personalInformation = new PersonalInformation(gender.getValue(), parts[0], parts[1],birthdate.getValue(), phone.getValue());
         Address address = new Address(street.getValue(), number.getValue(), zip.getValue(), city.getValue(), country.getValue());
-        caretakerRepository.createPersonalInformation(personalInformation);
-        caretakerRepository.createAddress(address);
+        caretakerRepository.createPersonalInformation(token, personalInformation);
+        //caretakerRepository.createAddress(token, address);
     }
 
-    private MutableLiveData<String> gender = new MutableLiveData<>();
+    private MutableLiveData<Integer> gender = new MutableLiveData<>();
 
-    public LiveData<String> getGender() {
+    public LiveData<Integer> getGender() {
         return gender;
     }
 
@@ -129,10 +132,10 @@ public class OnboardingPersonalViewModel extends AndroidViewModel {
     }
 
     public void maleGender() {
-        gender.postValue("Male");
+        gender.postValue(0);
     }
 
     public void femaleGender() {
-        gender.postValue("Female");
+        gender.postValue(1);
     }
 }

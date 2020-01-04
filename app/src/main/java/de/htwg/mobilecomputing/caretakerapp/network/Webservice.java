@@ -40,18 +40,18 @@ public interface Webservice {
 
     @Headers("Content-Type: application/json")
     @POST("address")
-    Call<Void> createAddress(@Header("Authorization") String accessToken, Address address);
+    Call<Void> createAddress(@Header("Authorization") String accessToken, @Body Address address);
 
     @Headers("Content-Type: application/json")
     @POST("address")
-    Call<Void> updateAddress(@Header("Authorization") String accessToken, Address address);
+    Call<Void> updateAddress(@Header("Authorization") String accessToken, @Body Address address);
 
     @Headers("Content-Type: application/json")
     @PUT("profile")
-    Call<Void> updateProfile(@Header("Authorization") String accessToken, PersonalInformation personalInformation);
+    Call<Void> updateProfile(@Header("Authorization") String accessToken, @Body PersonalInformation personalInformation);
 
     @Headers("Content-Type: application/json")
     @PUT("profile")
-    Call<Void> updateEducation(@Header("Authorization") String accessToken, int level);
+    Call<Void> updateEducation(@Header("Authorization") String accessToken, @Body int level);
 
 }

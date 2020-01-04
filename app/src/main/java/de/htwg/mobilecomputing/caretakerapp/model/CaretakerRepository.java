@@ -2,6 +2,7 @@ package de.htwg.mobilecomputing.caretakerapp.model;
 
 import android.app.Application;
 
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
 
 import de.htwg.mobilecomputing.caretakerapp.network.Webservice;
@@ -13,7 +14,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class CaretakerRepository {
+public class CaretakerRepository extends Fragment {
     private CaretakerDao mUserDao;
     private PersonalInformationDao informationDao;
     private AddressDao addressDao;
@@ -64,8 +65,11 @@ public class CaretakerRepository {
         webservice = retrofit.create(Webservice.class);
     }
 
-    public void createPersonalInformation(PersonalInformation personalInformation) {
-        Call<Void> call = webservice.updateProfile(token.getValue().accessToken, personalInformation);
+    public void createPersonalInformation(String accessToken, PersonalInformation personalInformation) {
+        AppDatabase.databaseWriteExecutor.execute(() -> {
+            informationDao.insertPersonalInformation(personalInformation);
+        });
+        Call<Void> call = webservice.updateProfile(accessToken, personalInformation);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
@@ -79,12 +83,15 @@ public class CaretakerRepository {
         });
     }
 
-    public void createAddress(Address address) {
-        Call<Void> call = webservice.createAddress(token.getValue().accessToken, address);
+    public void createAddress(String accessToken, Address address) {
+        AppDatabase.databaseWriteExecutor.execute(() -> {
+            addressDao.insertAddress(address);
+        });
+        Call<Void> call = webservice.createAddress(accessToken, address);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-
+                success.postValue(response.code());
             }
 
             @Override
@@ -97,10 +104,9 @@ public class CaretakerRepository {
     // You must call this on a non-UI thread or your app will throw an exception. Room ensures
     // that you're not doing any long running operations on the main thread, blocking the UI.
     public void register(Caretaker user) {
-        /*AppDatabase.databaseWriteExecutor.execute(() -> {
-            mUserDao.insert(user);
-        });*/
-        mUserDao.createCaretaker(user);
+        AppDatabase.databaseWriteExecutor.execute(() -> {
+            mUserDao.createCaretaker(user);
+        });
         Call<Void> call = webservice.register(new Credentials(user.getEmail(), user.getPassword()));
         call.enqueue(new Callback<Void>() {
             @Override

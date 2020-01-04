@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import de.htwg.mobilecomputing.caretakerapp.R;
@@ -27,6 +29,7 @@ public class OnboardingPersonalDataActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         accessToken = intent.getStringExtra(MainActivity.EXTRA_ACCESS_TOKEN);
+        viewModel.accessToken.setValue(accessToken);
 
         viewModel.getError().observe(this, new Observer<String>() {
             @Override

@@ -12,7 +12,7 @@ public class PersonalInformation {
     private int id = 0;
 
     @ColumnInfo
-    private String gender;
+    private Integer gender;
 
     @ColumnInfo
     private String first_name;
@@ -26,7 +26,7 @@ public class PersonalInformation {
     @ColumnInfo
     private String phone;
 
-    public PersonalInformation(String gender, String first_name, String surname, String birthday, String phone) {
+    public PersonalInformation(Integer gender, String first_name, String surname, String birthday, String phone) {
         this.gender = gender;
         this.first_name = first_name;
         this.surname = surname;
@@ -38,7 +38,7 @@ public class PersonalInformation {
         return id;
     }
 
-    public String getGender() {
+    public Integer getGender() {
         return gender;
     }
 
