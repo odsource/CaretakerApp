@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             public void onChanged(Token token) {
                 Intent intent = new Intent(MainActivity.this, OnboardingConfirmationActivity.class);
                 intent.putExtra(EXTRA_ACCESS_TOKEN, token.accessToken);
-                Toast.makeText(getApplicationContext(), "AccessToken: "+token.accessToken, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "AccessToken: "+token.accessToken, Toast.LENGTH_LONG).show();
                 startActivity(intent);
             }
         });
