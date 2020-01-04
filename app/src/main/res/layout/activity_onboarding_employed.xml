@@ -2,32 +2,32 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".view.OnboardingConfirmationActivity"
-    android:background="@color/colorLightBlue">
+    tools:context=".view.OnboardingEmployedActivity">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="8dp"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textAlignment="center"
-                android:text="TODO"/>
+                android:text="Are you self employed?">
+            </TextView>
 
-            <Button
-                android:id="@+id/confirmation_next"
-                android:layout_width="match_parent"
+            <ImageButton
+                android:id="@+id/employed_button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Add personal information" />
+                android:layout_gravity="center"/>
+
         </LinearLayout>
 
     </ScrollView>
