@@ -18,6 +18,30 @@ public class CaretakerRepository {
     private PersonalInformationDao informationDao;
     private AddressDao addressDao;
     private Webservice webservice;
+    private MutableLiveData<Token> token;
+    private MutableLiveData<String> error;
+    private MutableLiveData<Integer> success;
+
+    public MutableLiveData<Token> getToken() {
+        if (token == null) {
+            token = new MutableLiveData<>();
+        }
+        return token;
+    }
+
+    public MutableLiveData<String> getError() {
+        if (error == null) {
+            error = new MutableLiveData<>();
+        }
+        return error;
+    }
+
+    public MutableLiveData<Integer> getSuccess() {
+        if (success == null) {
+            success = new MutableLiveData<>();
+        }
+        return success;
+    }
 
     public CaretakerRepository(Application application) {
         AppDatabase db = AppDatabase.getDatabase(application);
@@ -40,6 +64,36 @@ public class CaretakerRepository {
         webservice = retrofit.create(Webservice.class);
     }
 
+    public void createPersonalInformation(PersonalInformation personalInformation) {
+        Call<Void> call = webservice.updateProfile(token.getValue().accessToken, personalInformation);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                success.postValue(response.code());
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                error.postValue(t.getMessage());
+            }
+        });
+    }
+
+    public void createAddress(Address address) {
+        Call<Void> call = webservice.createAddress(token.getValue().accessToken, address);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                error.postValue(t.getMessage());
+            }
+        });
+    }
+
     // You must call this on a non-UI thread or your app will throw an exception. Room ensures
     // that you're not doing any long running operations on the main thread, blocking the UI.
     public void register(Caretaker user) {
@@ -59,14 +113,6 @@ public class CaretakerRepository {
 
             }
         });
-    }
-
-    private MutableLiveData<Token> token;
-    public MutableLiveData<Token> getToken() {
-        if (token == null) {
-            token = new MutableLiveData<>();
-        }
-        return token;
     }
 
     public void login(LoginInfo loginInfo) {
