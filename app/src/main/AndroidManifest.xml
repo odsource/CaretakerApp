@@ -12,7 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.OnboardingPersonalDataActivity"></activity>
+        <activity android:name=".view.OnboardingReadyActivity"></activity>
+        <activity android:name=".view.OnboardingVerificationActivity" />
+        <activity android:name=".view.OnboardingStatusActivity" />
+        <activity android:name=".view.OnboardingWorkDetailsActivity" />
+        <activity android:name=".view.OnboardingGoalsActivity" />
+        <activity android:name=".view.OnboardingPersonalDataActivity" />
         <activity android:name=".view.OnboardingEmployedActivity" />
         <activity android:name=".view.OnboardingInformationActivity" />
         <activity android:name=".view.OnboardingConfirmationActivity" />
