@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:bind="http://schemas.android.com/tools"
-    android:background="@color/colorLightBlue">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.RegActivity">
 
     <data>
         <variable
@@ -10,74 +10,89 @@
             type="de.htwg.mobilecomputing.caretakerapp.viewmodel.RegViewModel" />
     </data>
 
-
-    <ScrollView
+    <LinearLayout
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:background="@drawable/gradient">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textWelcome2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:orientation="vertical">
+            android:text="Welcome!"
+            android:textColor="#FFF"
+            android:textAlignment="center"
+            android:translationY="-70dp"
+            android:textSize="36sp" />
 
-            <EditText
-                android:id="@+id/regEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:padding="8dp" />
+        <TextView
+            android:id="@+id/textPlsReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please register with a \n email adress and a password."
 
+            android:textColor="#FFF"
+            android:textAlignment="center"
+            android:translationY="-70dp"
+            android:textSize="16sp" />
 
-            <EditText
-                android:id="@+id/regPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:padding="8dp" />
-
-            <EditText
-                android:id="@+id/regPasswordMatch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:padding="8dp" />
+        <EditText
+            android:id="@+id/regEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="8dp" />
 
 
-            <Button
-                android:id="@+id/next_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Next" />
+        <EditText
+            android:id="@+id/regPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="8dp" />
 
-            <ProgressBar
-                android:id="@+id/progressBarReg"
-                style="?android:attr/progressBarStyleLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp"
-                android:visibility="@{regViewModel.busy}" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Have already an Account?" />
-
-            <Button
-                android:id="@+id/log_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Login" />
+        <EditText
+            android:id="@+id/regPasswordMatch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="8dp" />
 
 
-        </LinearLayout>
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Next" />
 
-    </ScrollView>
+        <ProgressBar
+            android:id="@+id/progressBarReg"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:visibility="@{regViewModel.busy}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Have already an Account?" />
+
+        <Button
+            android:id="@+id/log_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login" />
+
+
+    </LinearLayout>
 
 </layout>

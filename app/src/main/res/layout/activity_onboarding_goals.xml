@@ -4,26 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.OnboardingGoalsActivity">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Onboarding goals"/>
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:background="@drawable/gradient">
 
-            <Button
-                android:id="@+id/onboarding_goals_next_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Next"/>
-        </LinearLayout>
-    </ScrollView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Onboarding goals"/>
+
+        <Button
+            android:id="@+id/onboarding_goals_next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Next"/>
+    </LinearLayout>
 
 </layout>

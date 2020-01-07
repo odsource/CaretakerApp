@@ -2,7 +2,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".view.OnboardingEmployedActivity">
+    tools:context=".view.OnboardingEmployedActivity"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:background="@drawable/gradient">
 
     <ScrollView
         android:layout_width="match_parent"

@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.OnboardingConfirmationActivity"
-    android:background="@color/colorLightBlue">
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:background="@drawable/gradient">
 
     <ScrollView
         android:layout_width="match_parent"
