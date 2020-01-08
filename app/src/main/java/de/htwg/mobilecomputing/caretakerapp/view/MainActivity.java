@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import de.htwg.mobilecomputing.caretakerapp.R;
@@ -92,6 +95,27 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.changeToRegButton).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, RegActivity.class));
+            }
+        });
+
+        findViewById(R.id.show_pass_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText edit_password = findViewById(R.id.inPassword);
+                if(view.getId()==R.id.show_pass_button){
+                    if(edit_password.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())){
+                        ((ImageView) (view)).setImageResource(R.drawable.hide_password);
+
+                        //Show Password
+                        edit_password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    }
+                    else {
+                        ((ImageView) (view)).setImageResource(R.drawable.show_password);
+
+                        //Hide Password
+                        edit_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    }
+                }
             }
         });
     }

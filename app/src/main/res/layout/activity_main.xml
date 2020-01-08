@@ -17,11 +17,48 @@
         android:paddingRight="16dp"
         android:background="@drawable/gradient">
 
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:layout_marginTop="40dp"
+            android:text="Welcome!"/>
+
+        <TextView
+            android:id="@+id/login_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/welcome"
+            android:layout_marginTop="25dp"
+            android:text="Login with your mail and password."
+            android:textAlignment="center"
+            android:textColor="@color/colorLightGrey"/>
+
+        <TextView
+            android:id="@+id/mail_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_text"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="14dp"
+            android:text="E-Mail Address"
+            android:textColor="@color/colorLightGrey"
+            android:textSize="14dp"/>
+
         <EditText
             android:id="@+id/inEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:layout_below="@+id/mail_text"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/colorLightGrey"
+            android:backgroundTint="@color/colorLightGrey"
+            android:hint="john.doe@mail.com"
             android:inputType="textEmailAddress"
             android:padding="8dp"
             android:text="@={loginViewModel.email}"/>
@@ -31,29 +68,56 @@
             android:id="@+id/inPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/inEmail"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"
+            android:textColorHint="@color/colorLightGrey"
+            android:text="@={loginViewModel.password}"
+            android:backgroundTint="@color/colorLightGrey"
             android:hint="Password"
             android:inputType="textPassword"
-            android:padding="8dp"
-            android:text="@={loginViewModel.password}"/>
+            android:padding="8dp" />
+        <ImageView
+            android:id="@+id/show_pass_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_alignRight="@+id/inPassword"
+            android:layout_below="@id/inEmail"
+            android:layout_marginRight="5dp"
+            android:alpha=".5"
+            android:padding="5dp"
+            android:src="@drawable/show_password"/>
 
 
         <Button
             android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_below="@id/inPassword"
             android:onClick="@{()-> loginViewModel.onLoginClicked()}"
-            android:text="LOGIN" />
+            android:background="@android:color/white"
+            android:textColor="@color/colorTextButton"
+            android:textAllCaps="false"
+            android:text="Login" />
 
 
         <Button
             android:id="@+id/changeToRegButton"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="@android:color/transparent"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:text="REGISTER"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_button"
+            android:layout_marginTop="150dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:background="@android:color/white"
+            android:textAllCaps="false"
+            android:text="Register"
+            android:textColor="@color/colorTextButton"/>
     </RelativeLayout>
 
 </layout>
