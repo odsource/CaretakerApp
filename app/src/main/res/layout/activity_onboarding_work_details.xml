@@ -12,14 +12,149 @@
         android:background="@drawable/gradient">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/title_working"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Onboarding work details"/>
+            android:layout_marginTop="40dp"
+            android:textColor="@android:color/white"
+            android:textAlignment="center"
+            android:textSize="36sp"
+            android:text="Working Details"/>
+
+        <TextView
+            android:id="@+id/working_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_working"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorLightGrey"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:text="When and especially how much do\n you want to work?"/>
+
+        <TextView
+            android:id="@+id/workhours_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/working_text"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorLightGrey"
+            android:layout_marginLeft="28dp"
+            android:textSize="15sp"
+            android:text="How much hours do you want to work?"/>
+
+        <EditText
+            android:id="@+id/workhours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/workhours_text"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:textColor="@color/colorLightGrey"
+            android:backgroundTint="@color/colorLightGrey"
+            android:textColorHint="@color/colorLightGrey"
+            android:hint="Hours"/>
+
+        <TextView
+            android:id="@+id/days_work_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/workhours"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="28dp"
+            android:textColor="@color/colorLightGrey"
+            android:text="Which days do you want to work?"/>
+
+        <CheckBox
+            android:id="@+id/Monday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/days_work_text"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            android:text="Monday"
+            android:textSize="20sp"
+            android:textColor="@color/colorLightGrey"/>
+
+        <CheckBox
+            android:id="@+id/Tuesday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/days_work_text"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="25dp"
+            android:text="Tuesday"
+            android:textSize="20sp"
+            android:textColor="@color/colorLightGrey"/>
+
+        <CheckBox
+            android:id="@+id/Wednesday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Monday"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            android:text="Wednesday"
+            android:textSize="20sp"
+            android:textColor="@color/colorLightGrey"/>
+
+        <CheckBox
+            android:id="@+id/Thursday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Tuesday"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="25dp"
+            android:text="Thursday"
+            android:textSize="20sp"
+            android:textColor="@color/colorLightGrey"/>
+
+        <CheckBox
+            android:id="@+id/Friday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Wednesday"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            android:text="Friday"
+            android:textSize="20sp"
+            android:textColor="@color/colorLightGrey"/>
+
+        <CheckBox
+            android:id="@+id/Saturday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Thursday"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="25dp"
+            android:text="Saturday"
+            android:textSize="20sp"
+            android:textColor="@color/colorLightGrey"/>
+
+        <CheckBox
+            android:id="@+id/Sunday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Friday"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            android:text="Sunday"
+            android:textSize="20sp"
+            android:textColor="@color/colorLightGrey"/>
 
         <Button
             android:id="@+id/onboarding_work_done_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/Sunday"
+            android:layout_marginTop="100dp"
             android:layout_gravity="center"
             android:text="Done"/>
 
