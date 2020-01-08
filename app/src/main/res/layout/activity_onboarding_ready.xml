@@ -11,17 +11,45 @@
         android:paddingRight="16dp"
         android:background="@drawable/gradient">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/ready_pic"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Onboarding ready"/>
+            android:layout_marginTop="80dp"
+            android:src="@drawable/thumb_up"/>
+
+        <TextView
+            android:id="@+id/title_ready"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ready_pic"
+            android:layout_marginTop="30dp"
+            android:textColor="@android:color/white"
+            android:textSize="36sp"
+            android:textAlignment="center"
+            android:text="You are ready\n to start!"/>
+
+        <TextView
+            android:id="@+id/ready_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_ready"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorLightGrey"
+            android:textSize="20sp"
+            android:text="Your records were checked. You are\n ready to start. Good luck!"
 
         <Button
             android:id="@+id/onboarding_ready_cancel_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/ready_text"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
             android:layout_gravity="center"
+            android:textAllCaps="false"
             android:text="Cancel"/>
 
     </RelativeLayout>
