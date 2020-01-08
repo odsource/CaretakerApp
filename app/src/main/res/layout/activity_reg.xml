@@ -124,9 +124,9 @@
             android:layout_marginLeft="25dp"
             android:padding="12dp"
             android:textSize="22sp"
-            android:textColor="#888"
+            android:textColor="@color/colorText"
             android:textStyle="bold"
-            android:background="#FFF"
+            android:background="@android:color/white"
             android:text="Next"
             android:textAllCaps="false"/>
 

@@ -12,32 +12,44 @@
         android:background="@drawable/gradient">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:id="@+id/image_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/email"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/text_thx"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_below="@+id/image_top"
+            android:layout_marginTop="20dp"
             android:textAlignment="center"
-            android:textSize="20dp"
-            android:text="Thanks for your\n registration!"/>
+            android:textSize="30sp"
+            android:text="Thanks for your\n registration!"
+            android:textColor="@android:color/white"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/text_reg"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/text_thx"
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:textSize="15dp"
-            android:text="Thanks for registering. You got a\n mail from us. In this mail you have\n to confirm your registration."/>
+            android:textSize="20sp"
+            android:text="Thanks for registering. You got a\n mail from us. In this mail you have\n to confirm your registration."
+            android:textColor="@color/colorLightGrey"/>
 
         <Button
             android:id="@+id/login_privacy"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_below="@+id/text_reg"
+            android:layout_marginTop="100dp"
+            android:textColor="@color/colorTextButton"
+            android:background="@android:color/white"
             android:text="Login" />
-
 
     </RelativeLayout>
 </layout>

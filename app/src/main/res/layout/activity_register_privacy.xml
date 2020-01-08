@@ -17,11 +17,19 @@
         android:paddingRight="16dp"
         android:background="@drawable/gradient">
 
+        <ImageView
+            android:id="@+id/data_privacy_pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/data_privacy"/>
+
         <TextView
             android:id="@+id/data_privacy_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/data_privacy_pic"
             android:textAlignment="center"
             android:textSize="30sp"
             android:text="Data privacy"
@@ -67,6 +75,8 @@
             android:layout_gravity="center"
             android:onClick="@{()-> privacyViewModel.onRegClicked()}"
             android:text="Register"
+            android:background="@android:color/white"
+            android:textColor="@color/colorTextButton"
             android:textAllCaps="false"/>
 
 
