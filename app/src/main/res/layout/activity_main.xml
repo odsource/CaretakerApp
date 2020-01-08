@@ -10,13 +10,11 @@
             type="de.htwg.mobilecomputing.caretakerapp.viewmodel.LoginViewModel" />
     </data>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <RelativeLayout
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:layout_margin="8dp"
-        android:orientation="vertical"
-        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:background="@drawable/gradient">
 
         <EditText
@@ -56,6 +54,6 @@
             android:backgroundTint="@android:color/transparent"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:text="REGISTER"/>
-    </LinearLayout>
+    </RelativeLayout>
 
 </layout>

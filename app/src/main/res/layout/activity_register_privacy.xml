@@ -10,13 +10,11 @@
             type="de.htwg.mobilecomputing.caretakerapp.viewmodel.PrivacyViewModel" />
     </data>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <RelativeLayout
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:layout_margin="8dp"
-        android:orientation="vertical"
-        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:background="@drawable/gradient">
 
         <TextView
@@ -57,6 +55,6 @@
             android:text="Register" />
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </layout>

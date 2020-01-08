@@ -4,20 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.OnboardingInformationActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <RelativeLayout
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:layout_margin="8dp"
-        android:orientation="vertical"
-        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:background="@drawable/gradient">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Need your information" />
 
         <Button
             android:id="@+id/ok_button"
@@ -26,6 +18,6 @@
             android:layout_gravity="center"
             android:text="OK" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </layout>

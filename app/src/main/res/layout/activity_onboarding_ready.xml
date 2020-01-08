@@ -4,13 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.OnboardingReadyActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <RelativeLayout
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:layout_margin="8dp"
-        android:orientation="vertical"
-        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:background="@drawable/gradient">
 
         <TextView
@@ -26,6 +24,6 @@
             android:layout_gravity="center"
             android:text="Cancel"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </layout>
