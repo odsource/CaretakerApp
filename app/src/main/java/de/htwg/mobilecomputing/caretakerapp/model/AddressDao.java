@@ -13,7 +13,7 @@ import java.util.List;
 interface AddressDao {
 
     @Query("SELECT * FROM address_table")
-    LiveData<Address> getAddress();
+    Address getAddress();
 
     @Insert
     void insertAddress(Address address);

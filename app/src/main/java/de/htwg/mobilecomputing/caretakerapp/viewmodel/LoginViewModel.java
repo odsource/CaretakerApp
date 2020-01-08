@@ -14,12 +14,21 @@ import de.htwg.mobilecomputing.caretakerapp.model.Token;
 
 
 public class LoginViewModel extends AndroidViewModel {
+    MutableLiveData<Boolean> firstLogin;
+
+    public MutableLiveData<Boolean> getFirstLogin() {
+        if (firstLogin == null) {
+            firstLogin = new MutableLiveData<>();
+        }
+        return firstLogin;
+    }
 
     private CaretakerRepository mRepository;
     public LoginViewModel(Application application) {
         super(application);
         mRepository = new CaretakerRepository(application);
         userToken = mRepository.getToken();
+        firstLogin.postValue(mRepository.firstLogin());
     }
 
     public void register(Caretaker caretaker) {

@@ -34,6 +34,7 @@ import androidx.lifecycle.ViewModelProviders;
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_ACCESS_TOKEN = "EXTRA_ACCESS_TOKEN";
     private String accessToken = null;
+    private Boolean firstLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,10 +63,26 @@ public class MainActivity extends AppCompatActivity {
         loginViewModel.getUserToken().observe(this, new Observer<Token>() {
             @Override
             public void onChanged(Token token) {
-                Intent intent = new Intent(MainActivity.this, OnboardingConfirmationActivity.class);
-                intent.putExtra(EXTRA_ACCESS_TOKEN, token.accessToken);
-                //Toast.makeText(getApplicationContext(), "AccessToken: "+token.accessToken, Toast.LENGTH_LONG).show();
-                startActivity(intent);
+                Intent intent;
+                if (token == null) {
+                    Toast.makeText(getApplicationContext(), "No valid credentials", Toast.LENGTH_LONG).show();
+                } else {
+                    if (firstLogin == true) {
+                        intent = new Intent(MainActivity.this, OnboardingConfirmationActivity.class);
+                    } else {
+                        intent = new Intent(MainActivity.this, DashboardActivity.class);
+                    }
+                    intent.putExtra(EXTRA_ACCESS_TOKEN, token.accessToken);
+                    startActivity(intent);
+                }
+
+            }
+        });
+
+        loginViewModel.getFirstLogin().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                firstLogin = aBoolean;
             }
         });
 

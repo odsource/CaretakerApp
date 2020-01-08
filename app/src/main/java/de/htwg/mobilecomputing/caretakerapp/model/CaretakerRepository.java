@@ -139,4 +139,13 @@ public class CaretakerRepository extends Fragment {
             }
         });
     }
+
+    public Boolean firstLogin() {
+        Address address = addressDao.getAddress();
+        PersonalInformation personalInformation = informationDao.getPersonalInformation();
+        if (address == null || personalInformation == null) {
+            return true;
+        }
+        return false;
+    }
 }
