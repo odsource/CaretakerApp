@@ -11,8 +11,11 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import de.htwg.mobilecomputing.caretakerapp.R;
@@ -24,6 +27,7 @@ public class RegActivity extends AppCompatActivity {
     public static final String EXTRA_MAIL = "EXTRA_MAIL";
     public static final String EXTRA_PASSWORD = "EXTRA_PASSWORD";
 
+    private Boolean visible = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,48 @@ public class RegActivity extends AppCompatActivity {
                     startActivity(reg);
                 } else {
                     Toast.makeText(getApplicationContext(), "Password does not match", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        findViewById(R.id.show_pass1_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText edit_password = findViewById(R.id.regPassword);
+                if(view.getId()==R.id.show_pass1_button){
+                    if(edit_password.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())){
+                        ((ImageView) (view)).setImageResource(R.drawable.hide_password);
+
+                        //Show Password
+                        edit_password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    }
+                    else {
+                        ((ImageView) (view)).setImageResource(R.drawable.show_password);
+
+                        //Hide Password
+                        edit_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    }
+                }
+            }
+        });
+
+        findViewById(R.id.show_pass2_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText edit_password = findViewById(R.id.regPasswordMatch);
+                if(view.getId()==R.id.show_pass2_button){
+                    if(edit_password.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())){
+                        ((ImageView) (view)).setImageResource(R.drawable.hide_password);
+
+                        //Show Password
+                        edit_password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    }
+                    else {
+                        ((ImageView) (view)).setImageResource(R.drawable.show_password);
+
+                        //Hide Password
+                        edit_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    }
                 }
             }
         });
