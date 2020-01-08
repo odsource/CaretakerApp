@@ -18,41 +18,56 @@
         android:background="@drawable/gradient">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/data_privacy_text"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="30dp"
-            android:text="Data privacy" />
+            android:layout_marginTop="80dp"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:text="Data privacy"
+            android:textColor="@android:color/white"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/much_text"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_below="@+id/data_privacy_text"
+            android:layout_marginTop="20dp"
             android:textAlignment="center"
-            android:textSize="20dp"
-            android:text="We attach great importance to\n data protection. Therefore and\n a complete transparency is\n important. We only use the data to\n offer you the best possible service." />
+            android:textSize="18sp"
+            android:text="We attach great importance to\n data protection. Therefore and\n a complete transparency is\n important. We only use the data to\n offer you the best possible service."
+            android:textColor="@color/colorLightGrey"/>
 
         <CheckBox
             android:id="@+id/consent_one"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/much_text"
+            android:layout_marginTop="25dp"
             android:onClick="@{()-> privacyViewModel.onCheck1Clicked()}"
-            android:text="Consent type one" />
+            android:text="Consent type one"
+            android:textColor="@color/colorLightGrey"/>
 
         <CheckBox
             android:id="@+id/consent_two"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/consent_one"
+            android:layout_marginTop="10dp"
             android:onClick="@{()-> privacyViewModel.onCheck2Clicked()}"
-            android:text="Consent type two" />
+            android:text="Consent type two"
+            android:textColor="@color/colorLightGrey"/>
 
         <Button
             android:id="@+id/reg_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/consent_two"
+            android:layout_marginTop="100dp"
             android:layout_gravity="center"
             android:onClick="@{()-> privacyViewModel.onRegClicked()}"
-            android:text="Register" />
+            android:text="Register"
+            android:textAllCaps="false"/>
 
 
     </RelativeLayout>
