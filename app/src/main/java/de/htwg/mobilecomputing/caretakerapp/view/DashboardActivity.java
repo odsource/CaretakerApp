@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import de.htwg.mobilecomputing.caretakerapp.R;
@@ -11,6 +12,7 @@ import de.htwg.mobilecomputing.caretakerapp.databinding.ActivityDashboardBinding
 import de.htwg.mobilecomputing.caretakerapp.viewmodel.DashboardViewModel;
 
 public class DashboardActivity extends AppCompatActivity {
+    private String accessToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +22,8 @@ public class DashboardActivity extends AppCompatActivity {
         DashboardViewModel viewModel = ViewModelProviders.of(this).get(DashboardViewModel.class);
         binding.setViewModel(viewModel);
         binding.setLifecycleOwner(this);
+
+        Intent intent = getIntent();
+        accessToken = intent.getStringExtra(MainActivity.EXTRA_ACCESS_TOKEN);
     }
 }
