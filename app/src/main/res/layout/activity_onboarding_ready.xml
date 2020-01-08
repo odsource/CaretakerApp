@@ -38,7 +38,7 @@
             android:textAlignment="center"
             android:textColor="@color/colorLightGrey"
             android:textSize="20sp"
-            android:text="Your records were checked. You are\n ready to start. Good luck!"
+            android:text="Your records were checked. You are\n ready to start. Good luck!"/>
 
         <Button
             android:id="@+id/onboarding_ready_cancel_button"
