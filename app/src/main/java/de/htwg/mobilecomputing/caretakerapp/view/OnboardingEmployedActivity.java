@@ -31,5 +31,14 @@ public class OnboardingEmployedActivity extends AppCompatActivity {
                 startActivity(startIntent);
             }
         });
+
+        findViewById(R.id.not_employed_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startIntent = new Intent(OnboardingEmployedActivity.this, OnboardingPersonalDataActivity.class);
+                startIntent.putExtra(MainActivity.EXTRA_ACCESS_TOKEN, accessToken);
+                startActivity(startIntent);
+            }
+        });
     }
 }
