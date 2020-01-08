@@ -12,18 +12,47 @@
         android:background="@drawable/gradient">
 
         <TextView
+            android:id="@+id/thanks_confirmation_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
             android:textAlignment="center"
-            android:text="TODO"/>
+            android:text="Thanks for your\n confirmation!"
+            android:textColor="@android:color/white"
+            android:textSize="36sp"/>
+
+        <TextView
+            android:id="@+id/confirmation_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/thanks_confirmation_text"
+            android:textColor="@color/colorLightGrey"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:text="You're almost there. Now fill in the\n rest of your information so that you\n can start as a nurse."/>
 
         <Button
             android:id="@+id/confirmation_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/profile_pic"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="40dp"
             android:layout_gravity="center"
-            android:text="Add personal information" />
+            android:text="Complete\n your profile"
+            android:textColor="@color/colorTextButton"
+            android:background="@android:color/white"/>
+
+        <ImageView
+            android:id="@+id/profile_pic"
+            android:layout_below="@id/confirmation_text"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="60dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/handy"/>
 
     </RelativeLayout>
 

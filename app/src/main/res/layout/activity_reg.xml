@@ -24,7 +24,7 @@
             android:layout_marginTop="40dp"
             android:text="Welcome!"
             android:textAlignment="center"
-            android:textColor="#FFF"
+            android:textColor="@android:color/white"
             android:textSize="36sp"/>
 
         <TextView
