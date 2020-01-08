@@ -42,6 +42,9 @@ public class OnboardingPersonalDataActivity extends AppCompatActivity {
             @Override
             public void onChanged(Integer s) {
                 Toast.makeText(getApplicationContext(), "Success: " + s.toString(), Toast.LENGTH_LONG).show();
+                Intent startIntent = new Intent(OnboardingPersonalDataActivity.this, OnboardingGoalsActivity.class);
+                startIntent.putExtra(MainActivity.EXTRA_ACCESS_TOKEN, accessToken);
+                startActivity(startIntent);
             }
         });
     }
