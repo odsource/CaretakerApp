@@ -11,16 +11,68 @@
         android:paddingRight="16dp"
         android:background="@drawable/gradient">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/status_pic"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Verification ongoing"/>
+            android:layout_marginTop="40dp"
+            android:src="@drawable/status_pic"/>
+
+        <TextView
+            android:id="@+id/title_verification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/status_pic"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorLightGrey"
+            android:textSize="36sp"
+            android:text="Status"/>
+
+        <TextView
+            android:id="@+id/verification_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_verification"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorLightGrey"
+            android:textSize="20dp"
+            android:text="Your verification is in progress!\n Please be patient."/>
+
+        <TextView
+            android:id="@+id/problem_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/verification_text"
+            android:layout_marginTop="40dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorLightGrey"
+            android:textSize="20dp"
+            android:text="In case you have any problems,\n please contact us."/>
+
+        <Button
+            android:id="@+id/phone_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/problem_text"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:text="+49 154 358 638 42"
+            android:textColor="@color/colorLightGrey"
+            android:background="@color/colorButtonBackground"/>
 
         <Button
             android:id="@+id/onboarding_verification_cancel_button"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/phone_button"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:gravity="center"
+            android:textAllCaps="false"
             android:text="Cancel"/>
 
     </RelativeLayout>
