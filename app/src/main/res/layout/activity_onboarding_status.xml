@@ -12,17 +12,76 @@
         android:background="@drawable/gradient">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/title_status"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Onboarding status"/>
+            android:layout_marginTop="40dp"
+            android:textAlignment="center"
+            android:textSize="36sp"
+            android:textColor="@color/colorLightGrey"
+            android:text="Status"/>
+
+        <TextView
+            android:id="@+id/status_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_status"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorLightGrey"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:text="Your records are complete."/>
+
+        <Button
+            android:id="@+id/identity_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/status_text"
+            android:layout_marginTop="40dp"
+            android:background="@color/colorButtonBackground"
+            android:text="Identity"
+            android:textColor="@color/colorLightGrey"/>
+
+        <Button
+            android:id="@+id/personal_data_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/identity_button"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorButtonBackground"
+            android:text="Personal Data"
+            android:textColor="@color/colorLightGrey"/>
+
+        <Button
+            android:id="@+id/main_focus_and_interests_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/personal_data_button"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorButtonBackground"
+            android:text="Main focus and Interests"
+            android:textColor="@color/colorLightGrey"/>
+
+        <Button
+            android:id="@+id/working_details_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_focus_and_interests_button"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorButtonBackground"
+            android:text="Working details"
+            android:textColor="@color/colorLightGrey"/>
 
         <Button
             android:id="@+id/onboarding_status_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Start verification"/>
+            android:layout_below="@id/working_details_button"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="40dp"
+            android:text="Start verification"
+            android:textAllCaps="false"/>
 
     </RelativeLayout>
 
