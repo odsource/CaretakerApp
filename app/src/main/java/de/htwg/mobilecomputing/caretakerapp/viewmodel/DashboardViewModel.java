@@ -23,6 +23,27 @@ public class DashboardViewModel extends AndroidViewModel {
         super(application);
         mRepository = ((BasicApp) application).getRepository();
         //Date currentDate = Calendar.getInstance().toString();
-        date.postValue(Calendar.getInstance().toString());
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        int month = Calendar.getInstance().get(Calendar.MONTH);
+        int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+
+        month += 1;
+        String m;
+        if (month < 10) {
+            m = "0" + Integer.toString(month);
+        } else {
+            m = Integer.toString(month);
+        }
+
+        String d;
+        if (day < 10) {
+            d = "0" + Integer.toString(day);
+        } else {
+            d = Integer.toString(day);
+        }
+
+
+        String cal = d + "." + m + "." + Integer.toString(year);
+        date.postValue(cal);
     }
 }

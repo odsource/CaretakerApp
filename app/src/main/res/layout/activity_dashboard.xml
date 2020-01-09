@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80dp"
-                android:textAlignment="center"
+                android:layout_marginLeft="25dp"
                 android:textColor="@android:color/white"
                 android:textSize="36sp"
                 android:text="@={viewModel.date}"/>
@@ -42,23 +42,31 @@
                 android:text="Contact Requests"
                 android:textSize="20sp"/>
 
-            <Spinner
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <FrameLayout
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/appointments_text">
+                android:layout_below="@id/appointments_text"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/round_corners">
                 <TextView
                     android:id="@+id/text_inside"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="28dp"
-                    android:textColor="@color/colorLightGrey"
-                    android:text="Contact Requests"
+                    android:textColor="@android:color/black"
+                    android:text="First request"
                     android:textSize="20sp"/>
-            </FrameLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/text_inside"
+                    android:layout_marginLeft="25dp"
+                    android:text="Na du alter Sack"
+                    android:textColor="@android:color/black"/>
+            </RelativeLayout>
 
         </RelativeLayout>
 
