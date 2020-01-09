@@ -2,6 +2,7 @@ package de.htwg.mobilecomputing.caretakerapp.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
@@ -25,5 +26,16 @@ public class DashboardActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         accessToken = intent.getStringExtra(MainActivity.EXTRA_ACCESS_TOKEN);
+
+        viewModel.accessToken.setValue(accessToken);
+
+        viewModel.getLogout().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                if (aBoolean) {
+                    startActivity(new Intent(DashboardActivity.this, MainActivity.class));
+                }
+            }
+        });
     }
 }

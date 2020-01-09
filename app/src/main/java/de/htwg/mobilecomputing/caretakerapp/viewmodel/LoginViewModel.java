@@ -26,6 +26,7 @@ public class LoginViewModel extends AndroidViewModel {
         super(application);
         mRepository = ((BasicApp) application).getRepository();
         userToken = mRepository.getToken();
+        firstLogin.postValue(mRepository.firstLogin());
     }
 
     public void register(Caretaker caretaker) {
@@ -74,7 +75,6 @@ public class LoginViewModel extends AndroidViewModel {
             @Override
             public void run() {
                 login(new LoginInfo(email.getValue(), password.getValue()));
-                firstLogin.postValue(mRepository.firstLogin());
                 //loginClicked.setValue(true);
                 busy.setValue(8); //8 == View.GONE
             }

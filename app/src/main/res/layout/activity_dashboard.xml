@@ -43,6 +43,7 @@
                 android:textSize="20sp"/>
 
             <RelativeLayout
+                android:id="@+id/contact_request_box"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/appointments_text"
@@ -67,6 +68,20 @@
                     android:text="Na du alter Sack"
                     android:textColor="@android:color/black"/>
             </RelativeLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contact_request_box"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:gravity="center"
+                android:text="Logout"
+                android:textAllCaps="false"
+                android:background="@color/colorButtonBackground"
+                android:textColor="@color/colorLightGrey"
+                android:onClick="@{()->viewModel.logout()}"/>
 
         </RelativeLayout>
 

@@ -159,6 +159,10 @@ public class CaretakerRepository{
         });
     }
 
+    public void logout(String atoken) {
+        Call<Void> call = webservice.logout(atoken);
+    }
+
     LiveData<Address> firstAddress;
 
     public LiveData<Address> getFirstAddress() {

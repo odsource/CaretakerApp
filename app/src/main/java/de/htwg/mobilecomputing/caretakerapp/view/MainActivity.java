@@ -34,7 +34,8 @@ import androidx.lifecycle.ViewModelProviders;
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_ACCESS_TOKEN = "EXTRA_ACCESS_TOKEN";
     private String accessToken = null;
-    private Boolean firstLogin;
+    private Boolean firstLogin = true;
+    private Boolean logout = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,13 +68,19 @@ public class MainActivity extends AppCompatActivity {
                 if (token == null) {
                     Toast.makeText(getApplicationContext(), "No valid credentials", Toast.LENGTH_LONG).show();
                 } else {
-                    if (firstLogin == true) {
+                    //if (firstLogin == true) {
+                        //intent = new Intent(MainActivity.this, OnboardingConfirmationActivity.class);
+                    //} else {
+                        //intent = new Intent(MainActivity.this, DashboardActivity.class);
+                    //}
+                    if (logout == false) {
                         intent = new Intent(MainActivity.this, OnboardingConfirmationActivity.class);
+                        intent.putExtra(EXTRA_ACCESS_TOKEN, token.accessToken);
+                        startActivity(intent);
                     } else {
-                        intent = new Intent(MainActivity.this, DashboardActivity.class);
+                        logout = false;
                     }
-                    intent.putExtra(EXTRA_ACCESS_TOKEN, token.accessToken);
-                    startActivity(intent);
+
                 }
 
             }
@@ -83,29 +90,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(Boolean aBoolean) {
                 firstLogin = aBoolean;
-            }
-        });
-
-        loginViewModel.getLoginClicked().observe(this, new Observer<Boolean>() {
-            @Override
-            public void onChanged(@Nullable Boolean user) {
-                EditText mail = findViewById(R.id.inEmail);
-                EditText password = findViewById(R.id.inPassword);
-                LoginInfo loginInfo = new LoginInfo(mail.getText().toString(), password.getText().toString());
-                /*Call<Token> call = webservice.login(loginInfo);
-                call.enqueue(new Callback<Token>() {
-                    @Override
-                    public void onResponse(Call<Token> call, Response<Token> response) {
-                        Token token = response.body();
-                        accessToken = token.accessToken;
-
-                    }
-
-                    @Override
-                    public void onFailure(Call<Token> call, Throwable t) {
-
-                    }
-                });*/
             }
         });
 
@@ -135,5 +119,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        logout = true;
     }
 }

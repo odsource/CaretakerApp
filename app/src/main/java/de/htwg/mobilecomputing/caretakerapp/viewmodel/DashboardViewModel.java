@@ -3,6 +3,7 @@ package de.htwg.mobilecomputing.caretakerapp.viewmodel;
 import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import java.util.Calendar;
@@ -13,6 +14,16 @@ import de.htwg.mobilecomputing.caretakerapp.model.CaretakerRepository;
 
 public class DashboardViewModel extends AndroidViewModel {
     MutableLiveData<String> date = new MutableLiveData<>();
+    public MutableLiveData<String> accessToken = new MutableLiveData<>();
+    private MutableLiveData<Boolean> logout = new MutableLiveData<>();
+
+    public LiveData<Boolean> getLogout() {
+        return logout;
+    }
+
+    public MutableLiveData<String> getAccessToken() {
+        return accessToken;
+    }
 
     public MutableLiveData<String> getDate() {
         return date;
@@ -45,5 +56,10 @@ public class DashboardViewModel extends AndroidViewModel {
 
         String cal = d + "." + m + "." + Integer.toString(year);
         date.postValue(cal);
+    }
+
+    public void logout() {
+        mRepository.logout(accessToken.getValue());
+        logout.postValue(true);
     }
 }
