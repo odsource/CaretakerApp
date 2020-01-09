@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import de.htwg.mobilecomputing.caretakerapp.model.BasicApp;
 import de.htwg.mobilecomputing.caretakerapp.model.Caretaker;
 import de.htwg.mobilecomputing.caretakerapp.model.CaretakerRepository;
 import de.htwg.mobilecomputing.caretakerapp.model.LoginInfo;
@@ -23,7 +24,8 @@ public class LoginViewModel extends AndroidViewModel {
     private CaretakerRepository mRepository;
     public LoginViewModel(Application application) {
         super(application);
-        mRepository = new CaretakerRepository(application);
+        BasicApp basicApp = new BasicApp();
+        mRepository = basicApp.getRepository();
         userToken = mRepository.getToken();
         firstLogin.postValue(mRepository.firstLogin());
     }
