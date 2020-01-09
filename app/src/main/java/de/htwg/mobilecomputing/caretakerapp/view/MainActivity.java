@@ -34,7 +34,6 @@ import androidx.lifecycle.ViewModelProviders;
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_ACCESS_TOKEN = "EXTRA_ACCESS_TOKEN";
     private String accessToken = null;
-    private Boolean firstLogin = true;
     private Boolean logout = false;
 
     @Override
@@ -68,28 +67,17 @@ public class MainActivity extends AppCompatActivity {
                 if (token == null) {
                     Toast.makeText(getApplicationContext(), "No valid credentials", Toast.LENGTH_LONG).show();
                 } else {
-                    //if (firstLogin == true) {
-                        //intent = new Intent(MainActivity.this, OnboardingConfirmationActivity.class);
-                    //} else {
-                        //intent = new Intent(MainActivity.this, DashboardActivity.class);
-                    //}
-                    if (logout == false) {
+                    if (loginViewModel.loginClicked.getValue() == true) {
+                        loginViewModel.loginClicked.setValue(false);
                         intent = new Intent(MainActivity.this, OnboardingConfirmationActivity.class);
                         intent.putExtra(EXTRA_ACCESS_TOKEN, token.accessToken);
                         startActivity(intent);
                     } else {
-                        logout = false;
+
                     }
 
                 }
 
-            }
-        });
-
-        loginViewModel.getFirstLogin().observe(this, new Observer<Boolean>() {
-            @Override
-            public void onChanged(Boolean aBoolean) {
-                firstLogin = aBoolean;
             }
         });
 
@@ -119,11 +107,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        logout = true;
     }
 }

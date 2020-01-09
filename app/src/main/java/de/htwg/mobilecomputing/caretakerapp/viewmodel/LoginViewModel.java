@@ -55,13 +55,9 @@ public class LoginViewModel extends AndroidViewModel {
         return busy;
     }
 
-    private MutableLiveData<Boolean> loginClicked;
+    public MutableLiveData<Boolean> loginClicked = new MutableLiveData<>();
 
     public LiveData<Boolean> getLoginClicked() {
-        if (loginClicked == null) {
-            loginClicked = new MutableLiveData<>();
-        }
-
         return loginClicked;
     }
 
@@ -75,7 +71,7 @@ public class LoginViewModel extends AndroidViewModel {
             @Override
             public void run() {
                 login(new LoginInfo(email.getValue(), password.getValue()));
-                //loginClicked.setValue(true);
+                loginClicked.setValue(true);
                 busy.setValue(8); //8 == View.GONE
             }
         }, 1000);
