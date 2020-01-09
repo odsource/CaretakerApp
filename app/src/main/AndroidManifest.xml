@@ -22,18 +22,16 @@
         <activity android:name=".view.OnboardingPersonalDataActivity" />
         <activity android:name=".view.OnboardingEmployedActivity" />
         <activity android:name=".view.OnboardingInformationActivity" />
-        <activity android:name=".view.DashboardActivity">
+        <activity android:name=".view.DashboardActivity"></activity>
+        <activity android:name=".view.OnboardingConfirmationActivity" />
+        <activity android:name=".view.RegFinishedActivity" />
+        <activity android:name=".view.RegisterPrivacyActivity" />
+        <activity android:name=".view.RegActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".view.OnboardingConfirmationActivity" />
-        <activity android:name=".view.RegFinishedActivity" />
-        <activity android:name=".view.RegisterPrivacyActivity" />
-        <activity android:name=".view.RegActivity">
-
         </activity>
         <activity android:name=".view.MainActivity" />
     </application>
