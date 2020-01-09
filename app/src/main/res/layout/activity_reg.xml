@@ -117,7 +117,6 @@
                 android:padding="5dp"
                 android:src="@drawable/show_password"/>
 
-
             <Button
                 android:id="@+id/next_button"
                 android:layout_width="match_parent"
@@ -148,7 +147,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
                 android:layout_below="@+id/next_button"
-                android:layout_marginBottom="110dp"
+                android:layout_marginBottom="10dp"
                 android:text="Have already an Account?"
                 android:textColor="@color/colorLightGrey"/>
 
@@ -163,7 +162,6 @@
                 android:background="@android:color/transparent"
                 android:textAllCaps="false"
                 android:text="Login"/>
-
 
         </RelativeLayout>
 
