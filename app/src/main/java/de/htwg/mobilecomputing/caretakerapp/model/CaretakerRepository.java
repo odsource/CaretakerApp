@@ -15,7 +15,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class CaretakerRepository extends Fragment {
+public class CaretakerRepository{
+    private static CaretakerRepository INSTANCE;
+    private final AppDatabase db;
+
     private CaretakerDao mUserDao;
     private PersonalInformationDao informationDao;
     private AddressDao addressDao;
@@ -45,8 +48,19 @@ public class CaretakerRepository extends Fragment {
         return success;
     }
 
-    public CaretakerRepository(Application application) {
-        AppDatabase db = AppDatabase.getDatabase(application);
+    public static CaretakerRepository getInstance(final AppDatabase database) {
+        if (INSTANCE == null) {
+            synchronized (CaretakerRepository.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = new CaretakerRepository(database);
+                }
+            }
+        }
+        return INSTANCE;
+    }
+
+    public CaretakerRepository(final AppDatabase database) {
+        db = database;
         mUserDao = db.caretakerDao();
         informationDao = db.personalInformationDao();
         addressDao = db.addressDao();
