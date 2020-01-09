@@ -10,231 +10,236 @@
             type="de.htwg.mobilecomputing.caretakerapp.viewmodel.OnboardingPersonalViewModel" />
     </data>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:background="@drawable/gradient">
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
 
-        <TextView
-            android:id="@+id/personal_data"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="36sp"
-            android:text="Personal Data" />
+            <TextView
+                android:id="@+id/personal_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="36sp"
+                android:text="Personal Data" />
 
-        <TextView
-            android:id="@+id/personal_data_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/personal_data"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/colorLightGrey"
-            android:textSize="20sp"
-            android:textAlignment="center"
-            android:text="Where are you from and where are\n you going to work?" />
+            <TextView
+                android:id="@+id/personal_data_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/personal_data"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/colorLightGrey"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:text="Where are you from and where are\n you going to work?" />
 
-        <TextView
-            android:id="@+id/gender_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/personal_data_text"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="28dp"
-            android:textSize="20sp"
-            android:textColor="@color/colorLightGrey"
-            android:text="Gender" />
+            <TextView
+                android:id="@+id/gender_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/personal_data_text"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="28dp"
+                android:textSize="20sp"
+                android:textColor="@color/colorLightGrey"
+                android:text="Gender" />
 
-        <ImageButton
-            android:id="@+id/man_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/gender_text"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="35dp"
-            android:onClick="@{()-> viewModel.maleGender()}"
-            android:src="@drawable/man"/>
+            <ImageButton
+                android:id="@+id/man_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gender_text"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="35dp"
+                android:onClick="@{()-> viewModel.maleGender()}"
+                android:src="@drawable/man"/>
 
-        <ImageButton
-            android:id="@+id/woman_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/gender_text"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="35dp"
-            android:onClick="@{()-> viewModel.femaleGender()}"
-            android:src="@drawable/woman"/>
+            <ImageButton
+                android:id="@+id/woman_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/gender_text"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="35dp"
+                android:onClick="@{()-> viewModel.femaleGender()}"
+                android:src="@drawable/woman"/>
 
-        <TextView
-            android:id="@+id/personal_data_name_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/man_button"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="28dp"
-            android:textColor="@color/colorLightGrey"
-            android:textSize="15sp"
-            android:text="Name"/>
+            <TextView
+                android:id="@+id/personal_data_name_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/man_button"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="28dp"
+                android:textColor="@color/colorLightGrey"
+                android:textSize="15sp"
+                android:text="Name"/>
 
-        <EditText
-            android:id="@+id/caretaker_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/personal_data_name_text"
-            android:layout_marginRight="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="5dp"
-            android:textColorHint="@color/colorLightGrey"
-            android:backgroundTint="@color/colorLightGrey"
-            android:hint="Max Mustermann"
-            android:inputType="textPersonName"
-            android:text="@={viewModel.userName}"/>
+            <EditText
+                android:id="@+id/caretaker_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/personal_data_name_text"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="5dp"
+                android:textColorHint="@color/colorLightGrey"
+                android:backgroundTint="@color/colorLightGrey"
+                android:hint="Max Mustermann"
+                android:inputType="textPersonName"
+                android:text="@={viewModel.userName}"/>
 
-        <EditText
-            android:id="@+id/birthday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/caretaker_name"
-            android:layout_marginRight="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="10dp"
-            android:textColorHint="@color/colorLightGrey"
-            android:backgroundTint="@color/colorLightGrey"
-            android:hint="Birthday YYYY-MM-DD"
-            android:inputType="date"
-            android:text="@={viewModel.birthdate}"/>
+            <EditText
+                android:id="@+id/birthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/caretaker_name"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@color/colorLightGrey"
+                android:backgroundTint="@color/colorLightGrey"
+                android:hint="Birthday YYYY-MM-DD"
+                android:inputType="date"
+                android:text="@={viewModel.birthdate}"/>
 
-        <EditText
-            android:id="@+id/phone_number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/birthday"
-            android:layout_marginRight="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="10dp"
-            android:textColorHint="@color/colorLightGrey"
-            android:backgroundTint="@color/colorLightGrey"
-            android:hint="Phone number"
-            android:inputType="phone"
-            android:text="@={viewModel.phone}"/>
+            <EditText
+                android:id="@+id/phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/birthday"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@color/colorLightGrey"
+                android:backgroundTint="@color/colorLightGrey"
+                android:hint="Phone number"
+                android:inputType="phone"
+                android:text="@={viewModel.phone}"/>
 
-        <TextView
-            android:id="@+id/address_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/phone_number"
-            android:layout_marginRight="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="10dp"
-            android:textColor="@android:color/white"
-            android:textSize="30sp"
-            android:text="Address" />
+            <TextView
+                android:id="@+id/address_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/phone_number"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:text="Address" />
 
-        <EditText
-            android:id="@+id/street"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/address_text"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="100dp"
-            android:layout_marginTop="10dp"
-            android:layout_alignParentLeft="true"
-            android:hint="Street"
-            android:textColorHint="@color/colorLightGrey"
-            android:backgroundTint="@color/colorLightGrey"
-            android:text="@={viewModel.street}"/>
+            <EditText
+                android:id="@+id/street"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/address_text"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentLeft="true"
+                android:hint="Street"
+                android:textColorHint="@color/colorLightGrey"
+                android:backgroundTint="@color/colorLightGrey"
+                android:text="@={viewModel.street}"/>
 
-        <EditText
-            android:id="@+id/number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/address_text"
-            android:layout_marginRight="25dp"
-            android:layout_marginLeft="300dp"
-            android:layout_marginTop="10dp"
-            android:layout_alignParentRight="true"
-            android:textColorHint="@color/colorLightGrey"
-            android:backgroundTint="@color/colorLightGrey"
-            android:hint="No."
-            android:text="@={viewModel.number}"/>
+            <EditText
+                android:id="@+id/number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/address_text"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="300dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"
+                android:textColorHint="@color/colorLightGrey"
+                android:backgroundTint="@color/colorLightGrey"
+                android:hint="No."
+                android:text="@={viewModel.number}"/>
 
-        <EditText
-            android:id="@+id/zip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/street"
-            android:layout_marginRight="300dp"
-            android:layout_marginLeft="25dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="10dp"
-            android:textColorHint="@color/colorLightGrey"
-            android:backgroundTint="@color/colorLightGrey"
-            android:hint="Zip"
-            android:text="@={viewModel.zip}"/>
+            <EditText
+                android:id="@+id/zip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/street"
+                android:layout_marginRight="300dp"
+                android:layout_marginLeft="25dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@color/colorLightGrey"
+                android:backgroundTint="@color/colorLightGrey"
+                android:hint="Zip"
+                android:text="@={viewModel.zip}"/>
 
-        <EditText
-            android:id="@+id/city"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/street"
-            android:layout_marginRight="25dp"
-            android:layout_marginLeft="100dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
-            android:textColorHint="@color/colorLightGrey"
-            android:backgroundTint="@color/colorLightGrey"
-            android:hint="City"
-            android:text="@={viewModel.city}"/>
+            <EditText
+                android:id="@+id/city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/street"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="100dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@color/colorLightGrey"
+                android:backgroundTint="@color/colorLightGrey"
+                android:hint="City"
+                android:text="@={viewModel.city}"/>
 
-        <EditText
-            android:id="@+id/country"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/zip"
-            android:layout_marginRight="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="10dp"
-            android:textColorHint="@color/colorLightGrey"
-            android:backgroundTint="@color/colorLightGrey"
-            android:hint="Country"
-            android:text="@={viewModel.country}"/>
+            <EditText
+                android:id="@+id/country"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/zip"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@color/colorLightGrey"
+                android:backgroundTint="@color/colorLightGrey"
+                android:hint="Country"
+                android:text="@={viewModel.country}"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Tax information"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Tax information"/>
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:hint="Tax class"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Tax class"/>
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:hint="Tax number"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Tax number"/>
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Marital status"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Marital status"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/country"
-            android:text="Next"
-            android:textAllCaps="false"
-            android:onClick="@{()-> viewModel.nextClicked()}"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/country"
+                android:text="Next"
+                android:textAllCaps="false"
+                android:onClick="@{()-> viewModel.nextClicked()}"/>
 
-    </RelativeLayout>
+        </RelativeLayout>
+
+    </ScrollView>
 
 </layout>

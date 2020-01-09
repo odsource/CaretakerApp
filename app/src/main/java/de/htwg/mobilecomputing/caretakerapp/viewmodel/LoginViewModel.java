@@ -14,12 +14,9 @@ import de.htwg.mobilecomputing.caretakerapp.model.Token;
 
 
 public class LoginViewModel extends AndroidViewModel {
-    MutableLiveData<Boolean> firstLogin;
+    MutableLiveData<Boolean> firstLogin = new MutableLiveData<>();
 
     public MutableLiveData<Boolean> getFirstLogin() {
-        if (firstLogin == null) {
-            firstLogin = new MutableLiveData<>();
-        }
         return firstLogin;
     }
 

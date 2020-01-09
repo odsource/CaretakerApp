@@ -3,6 +3,7 @@ package de.htwg.mobilecomputing.caretakerapp.model;
 import android.app.Application;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import de.htwg.mobilecomputing.caretakerapp.network.Webservice;
@@ -49,6 +50,13 @@ public class CaretakerRepository extends Fragment {
         mUserDao = db.caretakerDao();
         informationDao = db.personalInformationDao();
         addressDao = db.addressDao();
+
+        AppDatabase.databaseWriteExecutor.execute(()-> {
+            firstAddress = addressDao.getAddress();
+        });
+        AppDatabase.databaseWriteExecutor.execute(() -> {
+            firstInformation = informationDao.getPersonalInformation();
+        });
 
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -140,10 +148,28 @@ public class CaretakerRepository extends Fragment {
         });
     }
 
+    LiveData<Address> firstAddress;
+
+    public LiveData<Address> getFirstAddress() {
+        if (firstAddress == null) {
+            firstAddress = new MutableLiveData<>();
+        }
+        return firstAddress;
+    }
+
+    LiveData<PersonalInformation> firstInformation;
+
+    public LiveData<PersonalInformation> getfirstInformation() {
+        if (firstInformation == null) {
+            firstInformation = new MutableLiveData<>();
+        }
+        return firstInformation;
+    }
+
     public Boolean firstLogin() {
-        Address address = addressDao.getAddress();
-        PersonalInformation personalInformation = informationDao.getPersonalInformation();
-        if (address == null || personalInformation == null) {
+        Address address = firstAddress.getValue();
+        PersonalInformation personalInformation = firstInformation.getValue();
+        if (firstAddress.getValue() == null || firstInformation.getValue() == null) {
             return true;
         }
         return false;

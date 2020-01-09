@@ -4,53 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.OnboardingInformationActivity">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:background="@drawable/gradient">
 
-        <ImageView
-            android:id="@+id/profile_completion_pic"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:src="@drawable/data_privacy"/>
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
 
-        <TextView
-            android:id="@+id/completion_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/profile_completion_pic"
-            android:textColor="@android:color/white"
-            android:textSize="36sp"
-            android:textAlignment="center"
-            android:text="Completion of\n your profile"/>
+            <ImageView
+                android:id="@+id/profile_completion_pic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/data_privacy"/>
 
-        <TextView
-            android:id="@+id/completion_much_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/completion_text"
-            android:layout_marginTop="10sp"
-            android:textColor="@color/colorLightGrey"
-            android:textSize="18sp"
-            android:textAlignment="center"
-            android:text="For a proofen profile we need some\n information about you. The following topics\n are covered: Identity, Personal Data,\n Education and Experience, Main focus and\n Interests, Working Details."/>
+            <TextView
+                android:id="@+id/completion_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/profile_completion_pic"
+                android:textColor="@android:color/white"
+                android:textSize="36sp"
+                android:textAlignment="center"
+                android:text="Completion of\n your profile"/>
 
-        <Button
-            android:id="@+id/ok_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/completion_much_text"
-            android:layout_marginTop="80dp"
-            android:background="@android:color/white"
-            android:textColor="@color/colorTextButton"
-            android:layout_gravity="center"
-            android:text="OK" />
+            <TextView
+                android:id="@+id/completion_much_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/completion_text"
+                android:layout_marginTop="10sp"
+                android:textColor="@color/colorLightGrey"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:text="For a proofen profile we need some\n information about you. The following topics\n are covered: Identity, Personal Data,\n Education and Experience, Main focus and\n Interests, Working Details."/>
 
-    </RelativeLayout>
+            <Button
+                android:id="@+id/ok_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/completion_much_text"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="20dp"
+                android:background="@android:color/white"
+                android:textColor="@color/colorTextButton"
+                android:layout_gravity="center"
+                android:text="OK" />
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </layout>

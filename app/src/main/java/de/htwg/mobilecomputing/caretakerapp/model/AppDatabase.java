@@ -3,6 +3,8 @@ package de.htwg.mobilecomputing.caretakerapp.model;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
@@ -15,10 +17,13 @@ import java.util.concurrent.Executors;
 @Database(entities = {Caretaker.class, Address.class, PersonalInformation.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static volatile AppDatabase INSTANCE;
+    public static final String DATABASE_NAME = "caretaker_database";
 
     public abstract CaretakerDao caretakerDao();
     public abstract PersonalInformationDao personalInformationDao();
     public abstract AddressDao addressDao();
+
+    private final MutableLiveData<Boolean> mIsDatabaseCreated = new MutableLiveData<>();
 
     private static final int NUMBER_OF_THREADS = 1;
     static final ExecutorService databaseWriteExecutor =
@@ -30,9 +35,23 @@ public abstract class AppDatabase extends RoomDatabase {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             AppDatabase.class,
-                            "caretaker_database")
-                            .addCallback(sRoomDatabaseCallback)
+                            DATABASE_NAME)
+                            .addCallback(new Callback() {
+                                @Override
+                                public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                                    super.onCreate(db);
+                                    databaseWriteExecutor.execute(() -> {
+                                        try {
+                                            Thread.sleep(4000);
+                                        } catch (InterruptedException ignored) {
+                                        }
+                                        AppDatabase database = AppDatabase.getDatabase(context.getApplicationContext());
+                                        database.setDatabaseCreated();
+                                    });
+                                }
+                            })
                             .build();
+                    INSTANCE.updateDatabaseCreated(context.getApplicationContext());
                 }
             }
         }
@@ -41,11 +60,18 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public static void destroyInstance() { INSTANCE = null; }
 
-    private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
-        @Override
-        public void onOpen(@NonNull SupportSQLiteDatabase db) {
-            super.onOpen(db);
+    private void updateDatabaseCreated(final Context context) {
+        if (context.getDatabasePath(DATABASE_NAME).exists()) {
+            setDatabaseCreated();
         }
-    };
+    }
+
+    private void setDatabaseCreated() {
+        mIsDatabaseCreated.postValue(true);
+    }
+
+    public LiveData<Boolean> getDatabaseCreated() {
+        return mIsDatabaseCreated;
+    }
 }
 

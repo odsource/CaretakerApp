@@ -12,7 +12,7 @@ import java.util.List;
 interface PersonalInformationDao {
 
     @Query("SELECT * FROM personalInformation_table")
-    PersonalInformation getPersonalInformation();
+    LiveData<PersonalInformation> getPersonalInformation();
 
     @Insert
     void insertPersonalInformation(PersonalInformation personalInformation);
