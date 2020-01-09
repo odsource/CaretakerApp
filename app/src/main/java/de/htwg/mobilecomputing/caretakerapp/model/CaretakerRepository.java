@@ -1,8 +1,5 @@
 package de.htwg.mobilecomputing.caretakerapp.model;
 
-import android.app.Application;
-
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 

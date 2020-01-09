@@ -147,7 +147,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="100dp"
+                android:layout_below="@+id/next_button"
+                android:layout_marginBottom="110dp"
                 android:text="Have already an Account?"
                 android:textColor="@color/colorLightGrey"/>
 
@@ -155,9 +156,9 @@
                 android:id="@+id/log_button"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="85dp"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/next_button"
                 android:textColor="@color/colorLightGrey"
                 android:background="@android:color/transparent"
                 android:textAllCaps="false"

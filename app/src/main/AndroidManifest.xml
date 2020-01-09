@@ -11,7 +11,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".model.BasicApp">
+
         <activity android:name=".view.OnboardingReadyActivity"></activity>
         <activity android:name=".view.OnboardingVerificationActivity" />
         <activity android:name=".view.OnboardingStatusActivity" />

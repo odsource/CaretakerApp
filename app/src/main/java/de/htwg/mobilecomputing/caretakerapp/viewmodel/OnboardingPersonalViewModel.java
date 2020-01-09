@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import de.htwg.mobilecomputing.caretakerapp.model.Address;
+import de.htwg.mobilecomputing.caretakerapp.model.BasicApp;
 import de.htwg.mobilecomputing.caretakerapp.model.CaretakerRepository;
 import de.htwg.mobilecomputing.caretakerapp.model.PersonalInformation;
 import de.htwg.mobilecomputing.caretakerapp.model.Token;
@@ -38,7 +39,7 @@ public class OnboardingPersonalViewModel extends AndroidViewModel {
 
     public OnboardingPersonalViewModel(Application application) {
         super(application);
-        caretakerRepository = new CaretakerRepository(application);
+        caretakerRepository = ((BasicApp) application).getRepository();
         error = caretakerRepository.getError();
         success = caretakerRepository.getSuccess();
     }

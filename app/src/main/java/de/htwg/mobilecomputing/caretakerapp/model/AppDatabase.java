@@ -40,10 +40,6 @@ public abstract class AppDatabase extends RoomDatabase {
                                 public void onCreate(@NonNull SupportSQLiteDatabase db) {
                                     super.onCreate(db);
                                     databaseWriteExecutor.execute(() -> {
-                                        try {
-                                            Thread.sleep(4000);
-                                        } catch (InterruptedException ignored) {
-                                        }
                                         AppDatabase database = AppDatabase.getDatabase(context.getApplicationContext());
                                         database.setDatabaseCreated();
                                     });

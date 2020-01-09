@@ -8,22 +8,20 @@ import androidx.lifecycle.MutableLiveData;
 import java.util.Calendar;
 import java.util.Date;
 
+import de.htwg.mobilecomputing.caretakerapp.model.BasicApp;
 import de.htwg.mobilecomputing.caretakerapp.model.CaretakerRepository;
 
 public class DashboardViewModel extends AndroidViewModel {
-    MutableLiveData<String> date;
+    MutableLiveData<String> date = new MutableLiveData<>();
 
     public MutableLiveData<String> getDate() {
-        if (date == null) {
-            date = new MutableLiveData<>();
-        }
         return date;
     }
 
     private CaretakerRepository mRepository;
     public DashboardViewModel(Application application) {
         super(application);
-        mRepository = new CaretakerRepository(application);
+        mRepository = ((BasicApp) application).getRepository();
         //Date currentDate = Calendar.getInstance().toString();
         date.postValue(Calendar.getInstance().toString());
     }
