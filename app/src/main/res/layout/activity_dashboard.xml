@@ -58,21 +58,83 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="28dp"
                     android:textColor="@android:color/black"
-                    android:text="First request"
+                    android:text="Request"
                     android:textSize="20sp"/>
                 <TextView
+                    android:id="@+id/patient_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/text_inside"
+                    android:layout_marginTop="20dp"
                     android:layout_marginLeft="25dp"
-                    android:text="Na du alter Sack"
+                    android:text="Hans Peter"
                     android:textColor="@android:color/black"/>
+                <TextView
+                    android:id="@+id/patient_street"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/patient_name"
+                    android:layout_marginLeft="25dp"
+                    android:text="Morgenstarstr. 25"
+                    android:textColor="@android:color/black"/>
+                <TextView
+                    android:id="@+id/patient_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/patient_street"
+                    android:layout_marginLeft="25dp"
+                    android:text="88457 Hanborg"
+                    android:textColor="@android:color/black"/>
+                <TextView
+                    android:id="@+id/link_to_prescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/patient_city"
+                    android:layout_marginLeft="25dp"
+                    android:text="Prescription"
+                    android:textColor="@android:color/holo_blue_dark"/>
+                <TextView
+                    android:id="@+id/illness"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/link_to_prescription"
+                    android:layout_marginLeft="25dp"
+                    android:text="Treatment: logotype"
+                    android:textColor="@android:color/holo_blue_dark"/>
+                <Button
+                    android:id="@+id/contact_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/illness"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:text="Accept"
+                    android:textAllCaps="false"
+                    android:background="@color/colorButtonBackground"
+                    android:textColor="@android:color/white"/>
             </RelativeLayout>
+
+            <Button
+                android:id="@+id/refresh_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contact_request_box"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:gravity="center"
+                android:text="Get requests"
+                android:textAllCaps="false"
+                android:background="@drawable/round_corners"
+                android:textColor="@color/colorTextButton"/>
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/contact_request_box"
+                android:layout_below="@id/refresh_button"
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
