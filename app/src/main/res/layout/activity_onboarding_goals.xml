@@ -4,72 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.OnboardingGoalsActivity">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:background="@drawable/gradient">
 
-        <TextView
-            android:id="@+id/title_goals"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:textSize="36sp"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:text="Your Goals"/>
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
 
-        <TextView
-            android:id="@+id/goals_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/title_goals"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/colorLightGrey"
-            android:textSize="20sp"
-            android:textAlignment="center"
-            android:text="Fill out your goals so we can find the\n best patient matches for you."/>
+            <TextView
+                android:id="@+id/title_goals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:textSize="36sp"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:text="Your Goals"/>
 
-        <EditText
-            android:id="@+id/netto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/goals_text"
-            android:layout_marginRight="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="30dp"
-            android:textColorHint="@color/colorLightGrey"
-            android:backgroundTint="@color/colorLightGrey"
-            android:hint="How much do you want to earn (netto)?"
-            android:padding="8dp" />
+            <TextView
+                android:id="@+id/goals_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_goals"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorLightGrey"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:text="Fill out your goals so we can find the\n best patient matches for you."/>
 
-        <EditText
-            android:id="@+id/interests"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/netto"
-            android:layout_marginRight="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="30dp"
-            android:textColorHint="@color/colorLightGrey"
-            android:backgroundTint="@color/colorLightGrey"
-            android:hint="What are your interests?"
-            android:padding="8dp" />
+            <EditText
+                android:id="@+id/netto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/goals_text"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="30dp"
+                android:textColorHint="@color/colorLightGrey"
+                android:backgroundTint="@color/colorLightGrey"
+                android:hint="How much do you want to earn (netto)?"
+                android:padding="8dp" />
 
-        <Button
-            android:id="@+id/onboarding_goals_next_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/interests"
-            android:layout_marginTop="80dp"
-            android:layout_gravity="center"
-            android:textAllCaps="false"
-            android:background="@android:color/white"
-            android:textColor="@color/colorTextButton"
-            android:text="Next"/>
+            <EditText
+                android:id="@+id/interests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/netto"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="30dp"
+                android:textColorHint="@color/colorLightGrey"
+                android:backgroundTint="@color/colorLightGrey"
+                android:hint="What are your interests?"
+                android:padding="8dp" />
 
-    </RelativeLayout>
+            <Button
+                android:id="@+id/onboarding_goals_next_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/interests"
+                android:layout_marginTop="80dp"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                android:background="@android:color/white"
+                android:textColor="@color/colorTextButton"
+                android:text="Next"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </layout>

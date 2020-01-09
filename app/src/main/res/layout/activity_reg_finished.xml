@@ -4,52 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.RegFinishedActivity">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:background="@drawable/gradient">
 
-        <ImageView
-            android:id="@+id/image_top"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:src="@drawable/email"/>
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
 
-        <TextView
-            android:id="@+id/text_thx"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/image_top"
-            android:layout_marginTop="20dp"
-            android:textAlignment="center"
-            android:textSize="30sp"
-            android:text="Thanks for your\n registration!"
-            android:textColor="@android:color/white"/>
+            <ImageView
+                android:id="@+id/image_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/email"/>
 
-        <TextView
-            android:id="@+id/text_reg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/text_thx"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:text="Thanks for registering. You got a\n mail from us. In this mail you have\n to confirm your registration."
-            android:textColor="@color/colorLightGrey"/>
+            <TextView
+                android:id="@+id/text_thx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/image_top"
+                android:layout_marginTop="20dp"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:text="Thanks for your\n registration!"
+                android:textColor="@android:color/white"/>
 
-        <Button
-            android:id="@+id/login_privacy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/text_reg"
-            android:layout_marginTop="100dp"
-            android:textColor="@color/colorTextButton"
-            android:background="@android:color/white"
-            android:text="Login" />
+            <TextView
+                android:id="@+id/text_reg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_thx"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:text="Thanks for registering. You got a\n mail from us. In this mail you have\n to confirm your registration."
+                android:textColor="@color/colorLightGrey"/>
 
-    </RelativeLayout>
+            <Button
+                android:id="@+id/login_privacy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_reg"
+                android:layout_marginTop="100dp"
+                android:textColor="@color/colorTextButton"
+                android:background="@android:color/white"
+                android:text="Login" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
 </layout>

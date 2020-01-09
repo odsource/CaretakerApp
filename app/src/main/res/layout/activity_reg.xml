@@ -10,156 +10,162 @@
             type="de.htwg.mobilecomputing.caretakerapp.viewmodel.RegViewModel" />
     </data>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:background="@drawable/gradient">
 
-        <TextView
-            android:id="@+id/textWelcome2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="Welcome!"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="36sp"/>
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
 
-        <TextView
-            android:id="@+id/textPlsReg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Please register with a mail adress\n and a password."
-            android:layout_below="@+id/textWelcome2"
-            android:textAlignment="center"
-            android:textColor="@color/colorLightGrey"
-            android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/textWelcome2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Welcome!"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="36sp"/>
 
-        <TextView
-            android:id="@+id/emailText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textPlsReg"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="14dp"
-            android:text="E-Mail Address"
-            android:textColor="@color/colorLightGrey"
-            android:textSize="14dp"/>
+            <TextView
+                android:id="@+id/textPlsReg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Please register with a mail adress\n and a password."
+                android:layout_below="@+id/textWelcome2"
+                android:textAlignment="center"
+                android:textColor="@color/colorLightGrey"
+                android:textSize="16sp"/>
 
-        <EditText
-            android:id="@+id/regEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/emailText"
-            android:layout_marginRight="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="10dp"
-            android:textColorHint="@color/colorLightGrey"
-            android:backgroundTint="@color/colorLightGrey"
-            android:hint="john.doe@mail.com"
-            android:inputType="textEmailAddress"
-            android:padding="8dp" />
+            <TextView
+                android:id="@+id/emailText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textPlsReg"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="14dp"
+                android:text="E-Mail Address"
+                android:textColor="@color/colorLightGrey"
+                android:textSize="14dp"/>
 
-        <EditText
-            android:id="@+id/regPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/regEmail"
-            android:layout_marginRight="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="25dp"
-            android:textColorHint="@color/colorLightGrey"
-            android:backgroundTint="@color/colorLightGrey"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:padding="8dp" />
-        <ImageView
-            android:id="@+id/show_pass1_button"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="25dp"
-            android:layout_alignRight="@+id/regPassword"
-            android:layout_below="@id/regEmail"
-            android:layout_marginRight="5dp"
-            android:alpha=".5"
-            android:padding="5dp"
-            android:src="@drawable/show_password"/>
+            <EditText
+                android:id="@+id/regEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/emailText"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@color/colorLightGrey"
+                android:backgroundTint="@color/colorLightGrey"
+                android:hint="john.doe@mail.com"
+                android:inputType="textEmailAddress"
+                android:padding="8dp" />
 
-        <EditText
-            android:id="@+id/regPasswordMatch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/regPassword"
-            android:layout_marginRight="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="25dp"
-            android:textColorHint="@color/colorLightGrey"
-            android:backgroundTint="@color/colorLightGrey"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
-            android:padding="8dp" />
-        <ImageView
-            android:id="@+id/show_pass2_button"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="25dp"
-            android:layout_alignRight="@+id/regPasswordMatch"
-            android:layout_below="@id/regPassword"
-            android:layout_marginRight="5dp"
-            android:alpha=".5"
-            android:padding="5dp"
-            android:src="@drawable/show_password"/>
+            <EditText
+                android:id="@+id/regPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/regEmail"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
+                android:textColorHint="@color/colorLightGrey"
+                android:backgroundTint="@color/colorLightGrey"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="8dp" />
+            <ImageView
+                android:id="@+id/show_pass1_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="25dp"
+                android:layout_alignRight="@+id/regPassword"
+                android:layout_below="@id/regEmail"
+                android:layout_marginRight="5dp"
+                android:alpha=".5"
+                android:padding="5dp"
+                android:src="@drawable/show_password"/>
 
-
-        <Button
-            android:id="@+id/next_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/regPasswordMatch"
-            android:layout_marginTop="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginLeft="25dp"
-            android:padding="12dp"
-            android:textSize="22sp"
-            android:textColor="@color/colorTextButton"
-            android:textStyle="bold"
-            android:background="@android:color/white"
-            android:text="Next"
-            android:textAllCaps="false"/>
-
-        <ProgressBar
-            android:id="@+id/progressBarReg"
-            style="?android:attr/progressBarStyleLarge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/next_button"
-            android:visibility="@{regViewModel.busy}" />
-
-        <TextView
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="100dp"
-            android:text="Have already an Account?"
-            android:textColor="@color/colorLightGrey"/>
-
-        <Button
-            android:id="@+id/log_button"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="85dp"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorLightGrey"
-            android:background="@android:color/transparent"
-            android:textAllCaps="false"
-            android:text="Login"/>
+            <EditText
+                android:id="@+id/regPasswordMatch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/regPassword"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
+                android:textColorHint="@color/colorLightGrey"
+                android:backgroundTint="@color/colorLightGrey"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:padding="8dp" />
+            <ImageView
+                android:id="@+id/show_pass2_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="25dp"
+                android:layout_alignRight="@+id/regPasswordMatch"
+                android:layout_below="@id/regPassword"
+                android:layout_marginRight="5dp"
+                android:alpha=".5"
+                android:padding="5dp"
+                android:src="@drawable/show_password"/>
 
 
-    </RelativeLayout>
+            <Button
+                android:id="@+id/next_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/regPasswordMatch"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
+                android:padding="12dp"
+                android:textSize="22sp"
+                android:textColor="@color/colorTextButton"
+                android:textStyle="bold"
+                android:background="@android:color/white"
+                android:text="Next"
+                android:textAllCaps="false"/>
+
+            <ProgressBar
+                android:id="@+id/progressBarReg"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/next_button"
+                android:visibility="@{regViewModel.busy}" />
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="100dp"
+                android:text="Have already an Account?"
+                android:textColor="@color/colorLightGrey"/>
+
+            <Button
+                android:id="@+id/log_button"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="85dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorLightGrey"
+                android:background="@android:color/transparent"
+                android:textAllCaps="false"
+                android:text="Login"/>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </layout>

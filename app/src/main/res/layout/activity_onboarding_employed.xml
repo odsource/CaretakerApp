@@ -4,55 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.OnboardingEmployedActivity">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:background="@drawable/gradient">
 
-        <TextView
-            android:id="@+id/title_employed"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="36dp"
-            android:text="Are you self employed?">
-        </TextView>
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
 
-        <TextView
-            android:id="@+id/text_employed"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/title_employed"
-            android:layout_marginTop="20dp"
-            android:textAlignment="center"
-            android:textColor="@color/colorLightGrey"
-            android:textSize="20sp"
-            android:text="You're already working freelance as\n a nurse. If not we are happy to\n support you in the step as well."/>
+            <TextView
+                android:id="@+id/title_employed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="36dp"
+                android:text="Are you self employed?">
+            </TextView>
 
-        <ImageButton
-            android:id="@+id/employed_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text_employed"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="80dp"
-            android:src="@drawable/thumb_up"
-            android:backgroundTint="@color/colorPrimary"/>
+            <TextView
+                android:id="@+id/text_employed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_employed"
+                android:layout_marginTop="20dp"
+                android:textAlignment="center"
+                android:textColor="@color/colorLightGrey"
+                android:textSize="20sp"
+                android:text="You're already working freelance as\n a nurse. If not we are happy to\n support you in the step as well."/>
 
-        <ImageButton
-            android:id="@+id/not_employed_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text_employed"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="80dp"
-            android:src="@drawable/thumb_dow"
-            android:backgroundTint="@color/colorPrimary"/>
+            <ImageButton
+                android:id="@+id/employed_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_employed"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="80dp"
+                android:src="@drawable/thumb_up"
+                android:backgroundTint="@color/colorPrimary"/>
 
-    </RelativeLayout>
+            <ImageButton
+                android:id="@+id/not_employed_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_employed"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="80dp"
+                android:src="@drawable/thumb_dow"
+                android:backgroundTint="@color/colorPrimary"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </layout>

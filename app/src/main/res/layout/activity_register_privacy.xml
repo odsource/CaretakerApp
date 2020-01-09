@@ -10,76 +10,81 @@
             type="de.htwg.mobilecomputing.caretakerapp.viewmodel.PrivacyViewModel" />
     </data>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:background="@drawable/gradient">
 
-        <ImageView
-            android:id="@+id/data_privacy_pic"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:src="@drawable/data_privacy"/>
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
 
-        <TextView
-            android:id="@+id/data_privacy_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/data_privacy_pic"
-            android:textAlignment="center"
-            android:textSize="30sp"
-            android:text="Data privacy"
-            android:textColor="@android:color/white"/>
+            <ImageView
+                android:id="@+id/data_privacy_pic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/data_privacy"/>
 
-        <TextView
-            android:id="@+id/much_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/data_privacy_text"
-            android:layout_marginTop="20dp"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:text="We attach great importance to\n data protection. Therefore and\n a complete transparency is\n important. We only use the data to\n offer you the best possible service."
-            android:textColor="@color/colorLightGrey"/>
+            <TextView
+                android:id="@+id/data_privacy_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/data_privacy_pic"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:text="Data privacy"
+                android:textColor="@android:color/white"/>
 
-        <CheckBox
-            android:id="@+id/consent_one"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/much_text"
-            android:layout_marginTop="25dp"
-            android:onClick="@{()-> privacyViewModel.onCheck1Clicked()}"
-            android:text="Consent type one"
-            android:textColor="@color/colorLightGrey"/>
+            <TextView
+                android:id="@+id/much_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/data_privacy_text"
+                android:layout_marginTop="20dp"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:text="We attach great importance to\n data protection. Therefore and\n a complete transparency is\n important. We only use the data to\n offer you the best possible service."
+                android:textColor="@color/colorLightGrey"/>
 
-        <CheckBox
-            android:id="@+id/consent_two"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/consent_one"
-            android:layout_marginTop="10dp"
-            android:onClick="@{()-> privacyViewModel.onCheck2Clicked()}"
-            android:text="Consent type two"
-            android:textColor="@color/colorLightGrey"/>
+            <CheckBox
+                android:id="@+id/consent_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/much_text"
+                android:layout_marginTop="25dp"
+                android:onClick="@{()-> privacyViewModel.onCheck1Clicked()}"
+                android:text="Consent type one"
+                android:textColor="@color/colorLightGrey"/>
 
-        <Button
-            android:id="@+id/reg_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/consent_two"
-            android:layout_marginTop="100dp"
-            android:layout_gravity="center"
-            android:onClick="@{()-> privacyViewModel.onRegClicked()}"
-            android:text="Register"
-            android:background="@android:color/white"
-            android:textColor="@color/colorTextButton"
-            android:textAllCaps="false"/>
+            <CheckBox
+                android:id="@+id/consent_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/consent_one"
+                android:layout_marginTop="10dp"
+                android:onClick="@{()-> privacyViewModel.onCheck2Clicked()}"
+                android:text="Consent type two"
+                android:textColor="@color/colorLightGrey"/>
 
+            <Button
+                android:id="@+id/reg_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/consent_two"
+                android:layout_marginTop="100dp"
+                android:layout_gravity="center"
+                android:onClick="@{()-> privacyViewModel.onRegClicked()}"
+                android:text="Register"
+                android:background="@android:color/white"
+                android:textColor="@color/colorTextButton"
+                android:textAllCaps="false"/>
 
-    </RelativeLayout>
+        </RelativeLayout>
+
+    </ScrollView>
 
 </layout>
