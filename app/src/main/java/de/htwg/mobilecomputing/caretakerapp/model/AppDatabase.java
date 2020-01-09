@@ -18,12 +18,11 @@ import java.util.concurrent.Executors;
 public abstract class AppDatabase extends RoomDatabase {
     private static volatile AppDatabase INSTANCE;
     public static final String DATABASE_NAME = "caretaker_database";
+    private final MutableLiveData<Boolean> mIsDatabaseCreated = new MutableLiveData<>();
 
     public abstract CaretakerDao caretakerDao();
     public abstract PersonalInformationDao personalInformationDao();
     public abstract AddressDao addressDao();
-
-    private final MutableLiveData<Boolean> mIsDatabaseCreated = new MutableLiveData<>();
 
     private static final int NUMBER_OF_THREADS = 1;
     static final ExecutorService databaseWriteExecutor =
