@@ -46,6 +46,9 @@ public class OnboardingPersonalViewModel extends AndroidViewModel {
 
     public void nextClicked() {
         String name = userName.getValue();
+        if (name == null) {
+            name = "C K";
+        }
         String token = "Bearer " + accessToken.getValue();
         String[] parts = name.split(" ");
         PersonalInformation personalInformation = new PersonalInformation(gender.getValue(), parts[0], parts[1],birthdate.getValue(), phone.getValue());
