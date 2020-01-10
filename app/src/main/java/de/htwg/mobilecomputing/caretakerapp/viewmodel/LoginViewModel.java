@@ -27,6 +27,7 @@ public class LoginViewModel extends AndroidViewModel {
         mRepository = ((BasicApp) application).getRepository();
         userToken = mRepository.getToken();
         firstLogin.postValue(mRepository.firstLogin());
+        loginClicked.setValue(false);
     }
 
     public void register(Caretaker caretaker) {
