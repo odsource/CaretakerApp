@@ -7,4 +7,4 @@ Teilnehmer:
   <br>
   <br>Implementation of the whole app
   <br>
-  ![alt text](https://raw.githubusercontent.com/odsource/MobileComputing1/master/mvvm.png)
+  ![alt text](https://raw.githubusercontent.com/odsource/MobileComputing1/master/Dokumentation.pdf)
