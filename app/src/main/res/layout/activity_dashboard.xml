@@ -50,7 +50,8 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
-                android:background="@drawable/round_corners">
+                android:background="@drawable/round_corners"
+                android:visibility="gone">
                 <TextView
                     android:id="@+id/text_inside"
                     android:layout_width="match_parent"
@@ -93,6 +94,18 @@
                     android:layout_marginLeft="25dp"
                     android:text="Treatment: logotype"
                     android:textColor="@android:color/black"/>
+                <TextView
+                    android:id="@+id/accepted"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/illness"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Accepted"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="20dp"
+                    android:textAlignment="center"
+                    android:visibility="gone"/>
                 <Button
                     android:id="@+id/contact_button"
                     android:layout_width="match_parent"

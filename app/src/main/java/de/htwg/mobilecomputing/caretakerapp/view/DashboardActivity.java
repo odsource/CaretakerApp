@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import de.htwg.mobilecomputing.caretakerapp.R;
 import de.htwg.mobilecomputing.caretakerapp.databinding.ActivityDashboardBinding;
@@ -35,6 +36,21 @@ public class DashboardActivity extends AppCompatActivity {
                 if (aBoolean) {
                     startActivity(new Intent(DashboardActivity.this, MainActivity.class));
                 }
+            }
+        });
+
+        findViewById(R.id.refresh_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                findViewById(R.id.contact_request_box).setVisibility(View.VISIBLE);
+            }
+        });
+
+        findViewById(R.id.contact_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                findViewById(R.id.accepted).setVisibility(View.VISIBLE);
+                findViewById(R.id.contact_button).setVisibility(View.GONE);
             }
         });
     }

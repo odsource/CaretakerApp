@@ -53,18 +53,20 @@
                 android:textColor="@color/colorLightGrey"
                 android:text="Gender" />
 
-            <ImageButton
+            <CheckBox
                 android:id="@+id/man_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/gender_text"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="35dp"
+                android:text="Man"
                 android:onClick="@{()-> viewModel.maleGender()}"
                 android:src="@drawable/man"/>
 
-            <ImageButton
+            <CheckBox
                 android:id="@+id/woman_button"
+                android:text="Woman"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/gender_text"
