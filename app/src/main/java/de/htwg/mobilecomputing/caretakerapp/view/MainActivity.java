@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     if (loginViewModel.loginClicked.getValue() == true) {
                         loginViewModel.loginClicked.setValue(false);
-                        intent = new Intent(MainActivity.this, DashboardActivity.class);
+                        intent = new Intent(MainActivity.this, OnboardingConfirmationActivity.class);
                         intent.putExtra(EXTRA_ACCESS_TOKEN, token.accessToken);
                         startActivity(intent);
                     } else {
