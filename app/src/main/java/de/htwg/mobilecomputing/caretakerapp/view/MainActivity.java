@@ -69,7 +69,13 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     if (loginViewModel.loginClicked.getValue() == true) {
                         loginViewModel.loginClicked.setValue(false);
-                        intent = new Intent(MainActivity.this, DashboardActivity.class);
+                        EditText mail = findViewById(R.id.inEmail);
+                        String s_mail = mail.getText().toString();
+                        if (s_mail.equals("christoph.kaiser93@outlook.de")) {
+                            intent = new Intent(MainActivity.this, DashboardActivity.class);
+                        } else {
+                            intent = new Intent(MainActivity.this, OnboardingConfirmationActivity.class);
+                        }
                         intent.putExtra(EXTRA_ACCESS_TOKEN, token.accessToken);
                         startActivity(intent);
                     } else {
