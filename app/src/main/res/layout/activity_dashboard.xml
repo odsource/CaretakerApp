@@ -68,7 +68,7 @@
                     android:layout_below="@id/text_inside"
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="25dp"
-                    android:text="Hans Peter"
+                    android:text="Anatoly Kubasov"
                     android:textColor="@android:color/black"/>
                 <TextView
                     android:id="@+id/patient_street"
@@ -76,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/patient_name"
                     android:layout_marginLeft="25dp"
-                    android:text="Morgenstarstr. 25"
+                    android:text="Leibbrandstr. 12"
                     android:textColor="@android:color/black"/>
                 <TextView
                     android:id="@+id/patient_city"
@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/patient_street"
                     android:layout_marginLeft="25dp"
-                    android:text="88457 Hanborg"
+                    android:text="78464 Konstanz"
                     android:textColor="@android:color/black"/>
                 <TextView
                     android:id="@+id/illness"
@@ -92,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/patient_city"
                     android:layout_marginLeft="25dp"
-                    android:text="Treatment: logotype"
+                    android:text="Treatment: Kardiologie"
                     android:textColor="@android:color/black"/>
                 <TextView
                     android:id="@+id/accepted"
