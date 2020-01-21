@@ -34,7 +34,7 @@ public class LoginViewModel extends AndroidViewModel {
         mRepository.register(caretaker);
     }
 
-    private MutableLiveData<Token> userToken;
+    private MutableLiveData<Token> userToken = new MutableLiveData<>();
 
     public LiveData<Token> getUserToken() {
         return userToken;

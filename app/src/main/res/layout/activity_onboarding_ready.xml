@@ -54,7 +54,7 @@
                 android:layout_marginRight="25dp"
                 android:layout_gravity="center"
                 android:textAllCaps="false"
-                android:text="Cancel"/>
+                android:text="To dashboard"/>
 
         </RelativeLayout>
 

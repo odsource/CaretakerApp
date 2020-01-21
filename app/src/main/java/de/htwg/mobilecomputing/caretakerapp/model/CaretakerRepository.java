@@ -62,6 +62,8 @@ public class CaretakerRepository{
         informationDao = db.personalInformationDao();
         addressDao = db.addressDao();
 
+        getFirstAddress();
+        getfirstInformation();
         AppDatabase.databaseWriteExecutor.execute(()-> {
             firstAddress = addressDao.getAddress();
         });
